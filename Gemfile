@@ -40,5 +40,4 @@ end
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt', '~> 3.1.7'
-
 gem 'newrelic_rpm'

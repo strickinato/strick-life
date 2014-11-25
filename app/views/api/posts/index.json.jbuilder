@@ -1,1 +1,3 @@
-json.array! @posts, :id, :user_id, :body, :created_at, :updated_at
+@posts.each do |post|
+  json.partial! 'api/posts/post', post: post
+end

@@ -4,7 +4,13 @@ window.StrickLife = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    StrickLife.posts = new StrickLife.Collections.Posts();
+    StrickLife.posts.fetch();
+
+    new StrickLife.Routers.AppRouter({
+      $rootEl: $("#main")
+    });
+    Backbone.history.start();
   }
 };
 

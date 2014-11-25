@@ -1,0 +1,8 @@
+<%= post.escape('created_at') %>
+
+<h4>Tags</h4>
+<ul>
+<% _(post.tags).each(function(tag){ %>
+  <li><%= tag.name %></li>
+<% }) %>
+</ul>

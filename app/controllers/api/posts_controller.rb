@@ -7,8 +7,6 @@ module Api
 
     def show
       @post = Post.find(params[:id])
-      @tags = @post.tags
-      @friends = @post.friends
       render :show
     end
   end

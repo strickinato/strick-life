@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125185009) do
+ActiveRecord::Schema.define(version: 20141125222545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friends", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friends", ["name"], name: "index_friends_on_name", using: :btree
 
   create_table "posts", force: true do |t|
     t.text     "body"
@@ -22,5 +30,25 @@ ActiveRecord::Schema.define(version: 20141125185009) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "taggings", force: true do |t|
+    t.string   "taggable_type", null: false
+    t.integer  "taggable_id",   null: false
+    t.integer  "post_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["post_id"], name: "index_taggings_on_post_id", using: :btree
+  add_index "taggings", ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+  add_index "taggings", ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", using: :btree
 
 end

@@ -1,10 +1,11 @@
-StrickLife.Collections.Views = Backbone.CompositeView.extend({
+StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
   template: JST["days/day_min"],
 
   render: function(){
-    var content = template();
+    debugger
+    var content = this.template();
     this.$el.html(content);
 
     return this;
-  }
+  },
 });

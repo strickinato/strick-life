@@ -30,7 +30,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
       this.collection.create(this.model, {
         success: function(){
           alert('created');
-          Backbone.history.navigate("#");
+          Backbone.history.navigate("#", {trigger: true});
         }
       })
     } else {

@@ -1,10 +1,20 @@
 StrickLife.Views.PostsForm = Backbone.View.extend({
+  initialize: function() {
+    this.on('render', this.afterRender)
+  },
+
+  addDatePicker: function() {
+    $("#form-date-picker").datepicker();
+  },
+
   template: JST["posts/form"],
 
   render: function(){
     var content = this.template();
-    this.$el.html(content)
 
+
+    this.$el.html(content)
+    this.addDatePicker();
     return this;
   },
 

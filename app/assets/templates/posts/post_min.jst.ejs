@@ -1,0 +1,9 @@
+<div class="post-min-content"><%= post.escape('body') %></div>
+
+<div class="post-min-tags">
+  <ul>
+    <% _(post.tags).each(function(tag){ %>
+    <li><%= tag.escape('name') %></li>
+    <% }); %>
+  </ul>
+</div>

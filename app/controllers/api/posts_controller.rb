@@ -25,7 +25,7 @@ module Api
 
     private
     def post_params
-      params.require(:post).permit(:user_id, :body)
+      params.require(:post).permit(:user_id, :body, :post_date)
     end
   end
 end

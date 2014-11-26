@@ -1,6 +1,7 @@
-StrickLife.Views.PostsIndex = Backbone.View.extend({
+StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   initialize: function(){
     this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "add", this.addPost)
   },
 
   template: JST["posts/index"],
@@ -12,5 +13,11 @@ StrickLife.Views.PostsIndex = Backbone.View.extend({
     this.$el.html(content)
 
     return this;
-  }
+  },
+
+  addPost: function() {
+
+  },
+
+
 });

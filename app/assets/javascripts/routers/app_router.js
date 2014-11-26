@@ -24,7 +24,7 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     });
 
     this._swapView(view)
-    
+
     var datePicker = $("#form-date-picker")
     datePicker.datepicker({
       altFormat: "yy-mm-dd",

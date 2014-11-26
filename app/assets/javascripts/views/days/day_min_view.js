@@ -10,9 +10,7 @@ StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
   className: "row",
 
   render: function(){
-    var content = this.template({
-      day: this.day
-    });
+    var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
 

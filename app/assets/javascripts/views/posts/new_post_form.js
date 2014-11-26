@@ -18,7 +18,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
   createPost: function(event) {
     event.preventDefault();
-
     var formData = this.$el.serializeJSON();
 
     //Change as they come
@@ -28,8 +27,8 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     this.model.set(formData);
     if (this.model.isNew()) {
       this.collection.create(this.model, {
-        success: function(){
-          alert('created');
+        success: function(model){
+          StrickLife.posts.add(model);
           Backbone.history.navigate("#", {trigger: true});
         }
       })

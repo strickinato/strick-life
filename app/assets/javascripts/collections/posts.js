@@ -29,6 +29,6 @@ StrickLife.Collections.Posts = Backbone.Collection.extend({
         postHash[year][month][day] = new StrickLife.Collections.Posts(dayPosts)
       }
     });
-    console.log(postHash)
+    return postHash
   }
 });

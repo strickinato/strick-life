@@ -28,10 +28,19 @@
   float:left;
 }
 
+#post-area {
+  width: 60%;
+}
+
 .day-post-container {
   border: solid 1px green;
   float: left;
+  background-color: #EEE;
 }
+.day-post-container:hover {
+  background-color: #FFF;
+}
+
 
 .day-min-date {
   float: left;

@@ -1,12 +1,27 @@
 StrickLife.Views.PostsForm = Backbone.View.extend({
-
+  className: "posts-form",
   template: JST["posts/form"],
 
   render: function(){
-    var content = this.template();
-
-
+    var date = new Date();
+    var today = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear()
+    var content = this.template({defaultDate: today});
     this.$el.html(content)
+    this.$('#form-date-picker').datepicker({
+      altFormat: "yy-mm-dd",
+      altField: "#form-date-actual-date",
+      defaultDate: 0
+    });
+    // setTimeout(appendDatePicker, 0);
+    // var appendDatePicker = function() {
+    //   var datePicker = this.$("#form-date-picker")
+    //   datePicker.datepicker({
+    //     altFormat: "yy-mm-dd",
+    //     altField: "#form-date-actual-date"
+    //   }).datepicker('option', 'setDate', new Date());
+    // };
+    // setTimeout(appendDatePicker, 0);
+
     return this;
   },
 

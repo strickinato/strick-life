@@ -38,7 +38,9 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
         for(var k = 0; k < days.length ; k++) {
           var day = days[k]
           var dayViewCollection = allPosts[year][month][day]
+          var date = year + "-" + month +"-"+ day
           var dayView = new StrickLife.Views.DayMinView({
+            date: date,
             collection: dayViewCollection
           });
           thisView.addSubview("#all-the-posts", dayView)

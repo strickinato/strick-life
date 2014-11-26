@@ -28,20 +28,15 @@
   float:left;
 }
 
-
-/*POST INDEX DISPLAYS*/
-div.post-index-full-display {
-  height: 30px;
-  width: 100%;
-
+.day-post-container {
+  border: solid 1px green;
+  float: left;
 }
 
-div.post-index-date-display {
-  float:left;
-  background-color: red;
+.day-min-date {
+  float: left;
 }
 
-div.post-index-body {
-  float:left;
-  background-color: firebrick;
+.post-min {
+  border: dotted 1px gray;
 }

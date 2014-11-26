@@ -19,3 +19,20 @@
 #sidenav {
   background-color: black;
 }
+
+
+/*POST INDEX DISPLAYS*/
+div.post-index-full-display {
+  height: 30px;
+  width: 100%
+}
+
+div.post-index-date-display {
+  float:left;
+  background-color: red;
+}
+
+div.post-index-body {
+  float:left;
+  background-color: firebrick;
+}

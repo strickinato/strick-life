@@ -1,3 +1,6 @@
 <% posts.each(function(post){ %>
-  <div class="post"><%= post.escape("body") %>--><%= post.escape("post_date") %></div>
+  <div class="post-index-full-display">
+    <div class="post-index-date-display"><%= post.escape("post_date") %></div>
+    <div class="post-index-body"><%= post.escape("body") %></div>
+  </div>
 <% }) %>

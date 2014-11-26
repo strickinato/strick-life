@@ -18,13 +18,22 @@
 
 #sidenav {
   background-color: black;
+  height: 100%;
+  width: 200px;
+  float:left;
+}
+
+#main {
+  left: 200px;
+  float:left;
 }
 
 
 /*POST INDEX DISPLAYS*/
 div.post-index-full-display {
   height: 30px;
-  width: 100%
+  width: 100%;
+
 }
 
 div.post-index-date-display {

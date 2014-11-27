@@ -1,3 +1,8 @@
+<% if (this.monthInputFlag == false ) { %>
+  <div class="month-header"><%= this.dateString %></div>
+  <% this.monthInputFlag = true; %>
+<% } %>
+
 <div class="day-min-date col-xs-2">
 <%= this.day %>
 </div>

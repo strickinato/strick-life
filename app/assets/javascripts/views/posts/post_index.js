@@ -29,9 +29,9 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
 
       for(var j = 0; j < months.length; j++){
         var month = months[j]
-        var DateString = StrickLife.MonthNames[month];
-        DateString += " ";
-        DateString += year;
+        var dateString = StrickLife.MonthNames[month];
+        dateString += " ";
+        dateString += year;
         //do something with this dateString
         var days = _.keys(allPosts[year][month])
 
@@ -40,6 +40,7 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
           var dayViewCollection = allPosts[year][month][day]
           var date = year + "-" + month +"-"+ day
           var dayView = new StrickLife.Views.DayMinView({
+            dateString: dateString,
             date: date,
             collection: dayViewCollection
           });

@@ -1,6 +1,8 @@
 StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
   initialize: function(options) {
+    this.monthInputFlag = false;
     this.date = options.date;
+    this.dateString = options.dateString;
     this.day = this.date.slice(8);
     this.generatePostViews();
   },

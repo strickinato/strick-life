@@ -1,0 +1,20 @@
+<form id="new-user-forn" action="<%= users_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="user_email">Email:</label>
+  <input
+    id= "user_email"
+    class=""
+    type="text"
+    name="user[email]"
+    value="<%= @user.email %>">
+
+  <label for="user_password">Password:</label>
+  <input
+    id= "user_password"
+    class=""
+    type="password"
+    name="user[password]">
+
+  <input type="Submit" value="Create User">
+</form>

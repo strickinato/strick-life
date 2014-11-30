@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def create
+    @user = User.new(user_params)
     email = user_params[:email]
     password = user_params[:password]
     user = User.find_by_credentials(email, password)

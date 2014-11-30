@@ -1,7 +1,7 @@
 module Api
   class PostsController < ApiController
     def index
-      @posts = Post.all
+      @posts = Post.where({user_id: current_user.id})
       render :index
     end
 

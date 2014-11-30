@@ -5,7 +5,11 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   render: function(){
     var date = new Date();
     var today = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear()
-    var content = this.template({defaultDate: today});
+    var actualToday = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate()
+    var content = this.template({
+      defaultDate: today,
+      actualDefaultDate: actualToday
+      });
     this.$el.html(content)
     this.$('#form-date-picker').datepicker({
       altFormat: "yy-mm-dd",
@@ -30,13 +34,14 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     formData.post.user_id = 1;
     formData.post.post_id = 1;
 
-    this.model.set(formData);
+    this.model.set(formData.post);
     if (this.model.isNew()) {
       this.collection.create(this.model, {
         success: function(model){
           StrickLife.posts.add(model);
           Backbone.history.navigate("#", {trigger: true});
-        }
+        },
+        wait: true
       })
     } else {
       this.model.save({},{

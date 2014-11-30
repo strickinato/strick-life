@@ -29,6 +29,7 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
 
   singleDay: function(year, month, day) {
     var view = new StrickLife.Views.DayFullView({
+      collection: StrickLife.posts,
       year: year,
       month: month,
       day: day

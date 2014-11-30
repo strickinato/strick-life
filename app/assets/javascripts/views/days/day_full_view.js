@@ -3,7 +3,8 @@ StrickLife.Views.DayFullView = Backbone.CompositeView.extend({
     this.year = options.year
     this.month = options.month
     this.day = options.day
-    this.generatePostViews();
+
+    this.listenTo(this.collection, "sync", this.render);
   },
 
   template: JST["days/day_full"],
@@ -11,6 +12,7 @@ StrickLife.Views.DayFullView = Backbone.CompositeView.extend({
   className: "row",
 
   render: function(){
+    this.generatePostViews();
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();

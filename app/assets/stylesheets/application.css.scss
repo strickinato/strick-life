@@ -19,8 +19,8 @@
 
 #main {
   left: 100px;
-  float:left;
 }
+
 
 #post-area {
   width: 60%;
@@ -33,7 +33,6 @@
 }
 
 .day-views{
-  padding-top: 100px;
 }
 
 .day-post-container {
@@ -45,7 +44,6 @@
 .day-post-container:hover {
   background-color: #FFF;
 }
-
 
 .day-min-date {
   float: left;
@@ -80,6 +78,7 @@
   z-index: 1000;
   position: fixed;
   left: 100px;
+  top: 50px;
   width: 0;
   height: 100%;
   margin-left: -100px;
@@ -98,6 +97,7 @@
 #page-content-wrapper {
   width: 100%;
   padding: 15px;
+  margin-top: 50px
 }
 
 #wrapper.toggled #page-content-wrapper {

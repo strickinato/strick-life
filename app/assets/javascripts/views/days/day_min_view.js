@@ -1,8 +1,10 @@
 StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
   initialize: function(options) {
-    this.date = options.date;
-    this.dateString = options.dateString;
-    this.day = this.date.slice(8);
+    this.year = options.year;
+    this.month = options.month;
+    this.day = options.day;
+    this.date = this.year + "-" + this.month +"-"+ this.day
+
     this.generatePostViews();
   },
 
@@ -16,6 +18,15 @@ StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
+  },
+
+  events: {
+    "click" : "goToDay"
+  },
+
+  goToDay: function(event){
+    var linkString = "date/" + this.year + "/" + this.month +"/"+ this.day
+    Backbone.history.navigate(linkString, {trigger: true})
   },
 
   generatePostViews: function() {

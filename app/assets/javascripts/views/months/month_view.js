@@ -31,7 +31,9 @@ StrickLife.Views.MonthView = Backbone.CompositeView.extend({
       var dayViewCollection = this.postsThisMonth[day]
       var date = this.year + "-" + this.month +"-"+ day
       var dayView = new StrickLife.Views.DayMinView({
-        date: date,
+        year: this.year,
+        month: this.month,
+        day: day,
         collection: dayViewCollection
       });
       thisView.addSubview(".day-views", dayView)

@@ -9,7 +9,7 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   className: "post-area",
 
   render: function(){
-    this.generateContent();
+    //this.generateContent();
     this.inputMonthViews();
     var content = this.template({
       posts: this.collection
@@ -43,11 +43,11 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
 
       for(var j = 0; j < months.length; j++){
         var month = months[j]
-        var dateString = StrickLife.MonthNames[month];
-        dateString += " ";
-        dateString += year;
+
         var monthView = new StrickLife.Views.MonthView({
-          dateString: dateString,
+          month: month,
+          year: year,
+          postsThisMonth: allPosts[year][month]
         });
         thisView.addSubview("#all-the-posts", monthView)
       }

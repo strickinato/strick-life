@@ -1,6 +1,12 @@
 StrickLife.Views.MonthView = Backbone.CompositeView.extend({
   initialize: function(options) {
-    this.dateString = options.dateString;
+    this.month = options.month;
+    this.year = options.year;
+    this.postsThisMonth = options.postsThisMonth
+    var dateString = StrickLife.MonthNames[this.month];
+    dateString += " ";
+    dateString += this.year;
+    this.dateString = dateString
   },
 
   template: JST["months/month"],
@@ -8,11 +14,29 @@ StrickLife.Views.MonthView = Backbone.CompositeView.extend({
   className: "single-month-view",
 
   render: function(){
+    this.inputDayViews()
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
 
     return this;
   },
+
+  inputDayViews: function() {
+    var days = _.keys(this.postsThisMonth)
+    var thisView = this;
+
+    for(var i = 0; i < days.length ; i++) {
+      var day = days[i]
+      var dayViewCollection = this.postsThisMonth[day]
+      var date = this.year + "-" + this.month +"-"+ day
+      var dayView = new StrickLife.Views.DayMinView({
+        date: date,
+        collection: dayViewCollection
+      });
+      thisView.addSubview(".day-views", dayView)
+    }
+
+  }
 
 });

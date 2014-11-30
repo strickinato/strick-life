@@ -38,7 +38,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     if (this.model.isNew()) {
       this.collection.create(this.model, {
         success: function(model){
-          StrickLife.posts.add(model);
           Backbone.history.navigate("#", {trigger: true});
         },
         wait: true

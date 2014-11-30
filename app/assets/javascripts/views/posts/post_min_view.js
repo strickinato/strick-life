@@ -1,5 +1,6 @@
 StrickLife.Views.PostMinView = Backbone.View.extend({
   initialize: function(){
+    this.shortenedBody = this.model.escape("body").slice(0,140)
     this.listenTo(this.model, "sync", this.render)
   },
 
@@ -9,7 +10,8 @@ StrickLife.Views.PostMinView = Backbone.View.extend({
 
   render: function(){
     var content = this.template({
-      post: this.model
+      post: this.model,
+      text: this.shortenedBody
     });
     this.$el.html(content)
 

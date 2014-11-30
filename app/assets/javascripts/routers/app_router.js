@@ -5,7 +5,8 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
 
   routes: {
     "":"index",
-    "posts/new": "new"
+    "posts/new": "new",
+    "date/:year/:month/:day" : "singleDay"
   },
 
   index: function() {
@@ -24,6 +25,16 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     });
 
     this._swapView(view);
+  },
+
+  singleDay: function(year, month, day) {
+    var view = new StrickLife.Views.DayFullView({
+      year: year,
+      month: month,
+      day: day
+    });
+
+    this._swapView(view)
   },
 
 

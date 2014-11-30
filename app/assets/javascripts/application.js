@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson
+//= require jquery.sticky-kit
 //= require jquery-ui/jquery-ui.min
 //= require bootstrap
 //= require turbolinks

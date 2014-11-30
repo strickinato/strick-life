@@ -28,6 +28,10 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
     //WORKING ON SORTING SUBVIEWS
 
     this.attachSubviews();
+    $(".sticky-month-header").stick_in_parent({
+      offset_top: 50,
+      spacer: false
+    })
 
     return this;
   },
@@ -54,37 +58,37 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
     }
   },
 
-  generateContent: function() {
-    var thisView = this;
-    var allPosts = StrickLife.posts.toHash();
-    var years = _.keys(allPosts).sort();
-
-    for(var i = 0; i < years.length; i++){
-      var year = years[i];
-      var months = _.keys(allPosts[year]).sort();
-
-      for(var j = 0; j < months.length; j++){
-        var month = months[j]
-        var dateString = StrickLife.MonthNames[month];
-        dateString += " ";
-        dateString += year;
-        //do something with this dateString
-        var days = _.keys(allPosts[year][month])
-
-        for(var k = 0; k < days.length ; k++) {
-          var day = days[k]
-          var dayViewCollection = allPosts[year][month][day]
-          var date = year + "-" + month +"-"+ day
-          var dayView = new StrickLife.Views.DayMinView({
-            dateString: dateString,
-            date: date,
-            collection: dayViewCollection
-          });
-          thisView.addSubview("#all-the-posts", dayView)
-        }
-      }
-    }
-  },
+  // generateContent: function() {
+  //   var thisView = this;
+  //   var allPosts = StrickLife.posts.toHash();
+  //   var years = _.keys(allPosts).sort();
+  //
+  //   for(var i = 0; i < years.length; i++){
+  //     var year = years[i];
+  //     var months = _.keys(allPosts[year]).sort();
+  //
+  //     for(var j = 0; j < months.length; j++){
+  //       var month = months[j]
+  //       var dateString = StrickLife.MonthNames[month];
+  //       dateString += " ";
+  //       dateString += year;
+  //       //do something with this dateString
+  //       var days = _.keys(allPosts[year][month])
+  //
+  //       for(var k = 0; k < days.length ; k++) {
+  //         var day = days[k]
+  //         var dayViewCollection = allPosts[year][month][day]
+  //         var date = year + "-" + month +"-"+ day
+  //         var dayView = new StrickLife.Views.DayMinView({
+  //           dateString: dateString,
+  //           date: date,
+  //           collection: dayViewCollection
+  //         });
+  //         thisView.addSubview("#all-the-posts", dayView)
+  //       }
+  //     }
+  //   }
+  // },
 
 
 });

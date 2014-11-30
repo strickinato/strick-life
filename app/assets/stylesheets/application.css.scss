@@ -26,6 +26,16 @@
   width: 60%;
 }
 
+.month-header {
+  display: block;
+  background-color: white;
+  z-index: 100;
+}
+
+.day-views{
+  padding-top: 100px;
+}
+
 .day-post-container {
   border: solid 1px green;
   float: left;
@@ -169,3 +179,5 @@
     margin-right: 0;
   }
 }
+
+/* Strick Additions to Start Bootsrap */

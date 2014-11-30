@@ -1,4 +1,15 @@
 <div id="wrapper">
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top container-fluid" role="navigation">
+        <p class="navbar-text"><%= current_user.email %></p>
+        <p class="navbar-text"><%= current_user.id %></p>
+        <%= button_to "Logout", session_url, {method: "delete", class: "btn btn-danger navbar-btn" } %>
+    </nav>
+
+    <div id="main">
+    </div>
+  </div>
+
 <div id="sidebar-wrapper">
   <div id="side-add-new-post"><a href="#/posts/new">New Post</a></div>
   <div id="side-see-all-posts"><a href="#">HelloWorld</a></div>
@@ -6,13 +17,5 @@
 
 
 
-    <nav class="navbar navbar-default" role="navigation">
-      <p class="navbar-text"><%= current_user.email %></p>
-      <p class="navbar-text"><%= current_user.id %></p>
-      <%= button_to "Logout", session_url, {method: "delete", class: "btn btn-danger navbar-btn" } %>
-    </nav>
-
-    <div id="main">
-    </div>
 
 </div>

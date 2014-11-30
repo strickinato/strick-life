@@ -1,6 +1,11 @@
-<% if logged_in? %>
-  <h1><%= current_user.email %></h1>
-<% end %>
+<nav class="navbar navbar-default" role="navigation">
+  <p class="navbar-text"><%= current_user.email %></p>
+  <p class="navbar-text"><%= current_user.id %></p>
+
+
+  <%= button_to "Logout", session_url, {method: "delete", class: "btn btn-danger navbar-btn" } %>
+</nav>
+
 
 <div class="container-fluid">
 

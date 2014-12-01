@@ -4,7 +4,7 @@ StrickLife.Views.DayFullView = Backbone.CompositeView.extend({
     this.month = options.month
     this.day = options.day
 
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync", this.filterCollection);
   },
 
   template: JST["days/day_full"],
@@ -18,6 +18,13 @@ StrickLife.Views.DayFullView = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
+  },
+
+  filterCollection: function() {
+    var allPosts = this.collection.toHash()
+    debugger
+    this.collection = allPosts[this.year][this.month][this.day]
+    this.render();
   },
 
   generatePostViews: function() {

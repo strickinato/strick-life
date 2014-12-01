@@ -59,6 +59,12 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
 
 
   _swapView: function(view) {
+    var nav = $("#contextual-navbar")
+    var navView = new StrickLife.Views.ContextNavBar({
+      $el: nav
+    });
+    navView.render().$el;
+    
     this._currentView && this._currentView.remove();
     this.$rootEl.html(view.render().$el)
     this._currentView = view;

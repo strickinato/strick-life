@@ -8,7 +8,6 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   className: "post-area",
 
   render: function(){
-    this.renderContextMenu();
 
     this.inputMonthViews();
     var content = this.template({
@@ -23,10 +22,6 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
     })
 
     return this;
-  },
-
-  renderContextMenu: function() {
-    $('#contextual-navbar').empty()
   },
 
   inputMonthViews: function(){

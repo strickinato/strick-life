@@ -24,6 +24,12 @@ window.StrickLife = {
     new StrickLife.Routers.AppRouter({
       $rootEl: $("#main")
     });
+
+    var nav = $("#contextual-navbar")
+    var view = new StrickLife.Views.ContextNavBar({
+      $el: nav
+    });
+    view.render().$el;
     Backbone.history.start();
   }
 };

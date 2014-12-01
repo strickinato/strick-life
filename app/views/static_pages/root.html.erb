@@ -1,6 +1,6 @@
 <div id="wrapper">
   <div id="page-content-wrapper">
-    <nav class="navbar navbar-default navbar-fixed-top container-fluid" role="navigation">
+    <nav id="contextual-navbar" class="navbar navbar-default navbar-fixed-top container-fluid" role="navigation">
         <div id="context-nav-el" class="navbar-left"></div>
         <%= button_to "Logout", session_url, {method: "delete", class: "btn btn-danger navbar-btn navbar-right" } %>
         <p class="navbar-text navbar-right"><%= current_user.email %></p>
@@ -18,7 +18,9 @@
 
 </div>
 
-
-
-
 </div>
+<script type="text/javascript">
+  window.currentUser = {
+    email: "<%= current_user.email %>"
+  }
+</script>

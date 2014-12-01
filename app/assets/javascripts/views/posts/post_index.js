@@ -26,7 +26,7 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   },
 
   renderContextMenu: function() {
-    $('#context-nav-el').empty()
+    $('#contextual-navbar').empty()
   },
 
   inputMonthViews: function(){

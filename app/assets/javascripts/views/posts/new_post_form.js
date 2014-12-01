@@ -34,6 +34,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   createPost: function(event) {
     event.preventDefault();
     var formData = this.$el.serializeJSON();
+    var formView = this;
 
     //Change as they come
     formData.post.user_id = 1;
@@ -48,8 +49,15 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
       })
     } else {
       this.model.save({},{
-        success: function() {
-          this.collection.fetch();
+        success: function(model) {
+          formView.collection.fetch();
+          //Navigate back to newly saved day-- perhaps change POSTVIEW
+          var string = "date/" + formView.model.get("post_date").split("-").join("/")
+          debugger
+          Backbone.history.navigate(string, {trigger: true})
+        },
+        error: function(){
+          alert('hi')
         }
       });
     }

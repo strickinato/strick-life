@@ -1,4 +1,8 @@
 StrickLife.Views.PostsForm = Backbone.View.extend({
+  initialize: function(options) {
+    this.listenTo(this.model, "sync", this.render)
+
+  },
   className: "posts-form",
   template: JST["posts/form"],
 
@@ -7,6 +11,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     var today = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear()
     var actualToday = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate()
     var content = this.template({
+      post: this.model,
       defaultDate: today,
       actualDefaultDate: actualToday
       });

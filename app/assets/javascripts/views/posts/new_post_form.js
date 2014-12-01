@@ -32,7 +32,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
     //Change as they come
     formData.post.user_id = 1;
-    formData.post.post_id = 1;
 
     this.model.set(formData.post);
     if (this.model.isNew()) {

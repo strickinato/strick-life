@@ -1,6 +1,8 @@
 <textarea
   id="new-post-body"
   name="post[body]"
+  value="<%= post.escape("body") %>"
+
   ></textarea>
 <input
   type="text"

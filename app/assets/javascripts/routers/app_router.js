@@ -6,7 +6,8 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "":"index",
     "posts/new": "new",
-    "date/:year/:month/:day" : "singleDay"
+    "date/:year/:month/:day" : "singleDay",
+    "posts/:id/edit" : "edit"
   },
 
   index: function() {
@@ -38,6 +39,15 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     this._swapView(view)
   },
 
+  edit: function(id){
+    var post = StrickLife.posts.get(id)
+    var view = new StrickLife.Views.PostsForm({
+      model: post,
+      collection: StrickLife.posts
+    });
+
+    this._swapView(view)
+  },
 
 
   _swapView: function(view) {

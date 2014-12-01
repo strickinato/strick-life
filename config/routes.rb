@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :tags, only: [:index]
       resources :friends, only: [:index]
     end
-
     resources :posts, only: [:index]
+    resources :locations, only:[:create]
   end
 end

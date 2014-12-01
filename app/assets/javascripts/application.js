@@ -16,6 +16,7 @@
 //= require jquery.sticky-kit
 //= require jquery-ui/jquery-ui.min
 //= require bootstrap
+//= require bootstrap3-editable/js/bootstrap-editable.min
 //= require turbolinks
 //= require underscore
 //= require backbone

@@ -31,6 +31,8 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   addMapToNavbar: function(){
     var view = new StrickLife.Views.MapSelectionView();
     $("#context-nav-el").html(view.render().$el)
+    //view.initMap();
+    view.createAutocomplete();
   },
 
   tagName: "form",

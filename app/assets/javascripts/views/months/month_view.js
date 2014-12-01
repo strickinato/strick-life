@@ -29,7 +29,6 @@ StrickLife.Views.MonthView = Backbone.CompositeView.extend({
     for(var i = 0; i < days.length ; i++) {
       var day = days[i]
       var dayViewCollection = this.postsThisMonth[day]
-      var date = this.year + "-" + this.month +"-"+ day
       var dayView = new StrickLife.Views.DayMinView({
         year: this.year,
         month: this.month,

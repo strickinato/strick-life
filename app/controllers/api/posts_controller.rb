@@ -10,6 +10,17 @@ module Api
       render :show
     end
 
+    def update
+      @post = Post.find(params[:id])
+
+      if @post.update(post_params)
+        render :show
+      else
+        render :json => @post.errors.full_messages, :status => 422
+      end
+
+
+    end
 
     def create
       @post = Post.new(post_params)

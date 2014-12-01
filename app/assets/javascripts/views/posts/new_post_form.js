@@ -22,7 +22,15 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
       defaultDate: 0
     });
 
+    this.addMapToNavbar();
+
+
     return this;
+  },
+
+  addMapToNavbar: function(){
+    var view = new StrickLife.Views.MapSelectionView();
+    $("#context-nav-el").html(view.render().$el)
   },
 
   tagName: "form",

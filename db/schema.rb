@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129224908) do
+ActiveRecord::Schema.define(version: 20141201151804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20141129224908) do
   end
 
   add_index "friends", ["name"], name: "index_friends_on_name", using: :btree
+
+  create_table "locations", force: true do |t|
+    t.integer "post_id",   null: false
+    t.float   "latitude",  null: false
+    t.float   "longitude", null: false
+    t.integer "place_id"
+  end
 
   create_table "posts", force: true do |t|
     t.text     "body"

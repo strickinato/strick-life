@@ -21,11 +21,31 @@ window.StrickLife = {
     StrickLife.posts = new StrickLife.Collections.Posts();
     StrickLife.posts.fetch();
 
+    this.getLocationData();
+
     new StrickLife.Routers.AppRouter({
       $rootEl: $("#main")
     });
 
     Backbone.history.start();
+  },
+
+  getLocationData: function(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position){
+        var geocoder = new google.maps.Geocoder();
+        var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        geocoder.geocode({'latLng': latLng}, function(results, status){
+          var place = results[0];
+          StrickLife.currentAddress = place.formatted_address;
+          StrickLife.currentCoords = place.geometry.location;
+          StrickLife.currentPlaceId = place.place_id;
+          debugger
+        })
+      });
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
   }
 };
 

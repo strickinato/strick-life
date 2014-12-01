@@ -45,10 +45,10 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     var formData = this.$el.serializeJSON();
     var formView = this;
 
-    debugger
 
-    //Change as they come
-    formData.post.user_id = 1;
+    formData.post.user_id = parseInt(StrickLife.currentUser.id);
+    this.getAddress()
+    debugger
 
     this.model.set(formData.post);
     if (this.model.isNew()) {
@@ -72,5 +72,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
         }
       });
     }
-  }
+  },
+
 });

@@ -16,7 +16,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 #main {
   left: 100px;
 }
@@ -55,6 +54,13 @@
 
 .post-full{
   border-bottom: solid 1px #DDD;
+}
+
+/*MAP*/
+#gmap {
+  width: 100%;
+  height: 500px;
+  position: fixed;
 }
 
 

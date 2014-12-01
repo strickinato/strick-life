@@ -7,7 +7,8 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     "":"index",
     "posts/new": "new",
     "date/:year/:month/:day" : "singleDay",
-    "posts/:id/edit" : "edit"
+    "posts/:id/edit" : "edit",
+    "map":"map"
   },
 
   index: function() {
@@ -47,6 +48,13 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     });
 
     this._swapView(view)
+  },
+
+  map: function(){
+    var view = new StrickLife.Views.MapView;
+    this._swapView(view)
+
+    view.initMap();
   },
 
 

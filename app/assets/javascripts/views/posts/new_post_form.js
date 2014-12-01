@@ -42,15 +42,14 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
   createPost: function(event) {
     event.preventDefault();
-    var formData = this.$el.serializeJSON();
+
+    var formData = this.getFormData()
     var formView = this;
 
 
-    formData.post.user_id = parseInt(StrickLife.currentUser.id);
-    this.getAddress()
     debugger
 
-    this.model.set(formData.post);
+    this.model.set(formData);
     if (this.model.isNew()) {
       this.collection.create(this.model, {
         success: function(model){
@@ -72,6 +71,18 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
         }
       });
     }
+  },
+
+  getFormData: function(){
+    var formData = this.$el.serializeJSON();
+    formData.post.user_id = parseInt(StrickLife.currentUser.id);
+    formData.location_data = {};
+    formData.location_data.latitude = StrickLife.currentCoords.lat()
+    formData.location_data.longitude = StrickLife.currentCoords.lng()
+    formData.location_data.address = StrickLife.currentAddress
+    formData.location_data.place_id = StrickLife.currentPlaceId
+
+    return formData
   },
 
 });

@@ -25,19 +25,20 @@ ActiveRecord::Schema.define(version: 20141201151804) do
   add_index "friends", ["name"], name: "index_friends_on_name", using: :btree
 
   create_table "locations", force: true do |t|
-    t.integer "post_id",   null: false
     t.float   "latitude",  null: false
     t.float   "longitude", null: false
+    t.string  "address"
     t.integer "place_id"
   end
 
   create_table "posts", force: true do |t|
     t.text     "body"
-    t.integer  "user_id",                                    null: false
+    t.integer  "user_id",                                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "post_date",  default: '2014-11-26',          null: false
-    t.time     "post_time",  default: '2000-01-01 17:10:46', null: false
+    t.date     "post_date",   default: '2014-11-26',          null: false
+    t.time     "post_time",   default: '2000-01-01 17:10:46', null: false
+    t.integer  "location_id", default: 1
   end
 
   create_table "taggings", force: true do |t|

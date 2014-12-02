@@ -75,11 +75,11 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   getFormData: function(){
     var formData = this.$el.serializeJSON();
     formData.post.user_id = parseInt(StrickLife.currentUser.id);
-    // formData.post.location_data = {};
-    // formData.post.location_data.latitude = StrickLife.currentCoords.lat()
-    // formData.post.location_data.longitude = StrickLife.currentCoords.lng()
-    // formData.post.location_data.address = StrickLife.currentAddress
-    // formData.post.location_data.place_id = StrickLife.currentPlaceId
+    formData.post.location_data = {};
+    formData.post.location_data.latitude = StrickLife.currentCoords.lat()
+    formData.post.location_data.longitude = StrickLife.currentCoords.lng()
+    formData.post.location_data.address = StrickLife.currentAddress
+    formData.post.location_data.place_id = StrickLife.currentPlaceId
 
     return formData
   },

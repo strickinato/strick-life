@@ -6,13 +6,27 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
 
   render: function(){
     var content = this.template();
+    this.insertCurrentLocation();
     this.$el.html(content);
 
     return this;
   },
 
   events: {
-    "click #map-selection-icon" : "togglePopover"
+    "click #map-selection-icon" : "togglePopover",
+    "locationLoad #current-location-view": "insertCurrentLocation"
+  },
+
+  insertCurrentLocation: function() {
+    var address
+    if (StrickLife.currentAddress !== undefined ) {
+      address = StrickLife.currentAddress
+    } else {
+      address = "loading address..."
+    };
+    setTimeout(function(){
+      $("#current-location-view").html(address)
+    }.bind(this),0)
   },
 
   togglePopover: function(){

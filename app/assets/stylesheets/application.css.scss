@@ -79,7 +79,13 @@ textarea {
 }
 
 #location-expanded-view {
-  height: 500px;
+  position: absolute;
+  top: 100%;
+  left: 40px;
+  background-color: #eee;
+  border: solid 1px #ddd;
+  border-radius: 5px;
+
 }
 
 .pac-container {

@@ -40,6 +40,7 @@ window.StrickLife = {
           StrickLife.currentAddress = place.formatted_address;
           StrickLife.currentCoords = place.geometry.location;
           StrickLife.currentPlaceId = place.place_id;
+          $("#current-location-view").trigger("locationLoad")
         })
       });
     } else {

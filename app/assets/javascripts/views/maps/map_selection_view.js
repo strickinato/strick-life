@@ -4,14 +4,15 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
 
   render: function(){
     var content = this.template();
-
     this.$el.html(content);
+
     return this;
   },
 
   createAutocomplete: function() {
     var input = document.getElementById("map-search-box")
     var autocomplete = new google.maps.places.Autocomplete(input);
+
 
     google.maps.event.addListener(autocomplete, 'place_changed', function(location) {
       var place = autocomplete.getPlace();
@@ -22,12 +23,25 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
   },
 
 
-  // createPopover: function() {
-  //   $('#map-selection-icon').editable({
-  //     type:'text',
-  //     title: 'Enter Location'
-  //   })
-  // },
+  createPopover: function() {
+    //
+    // var tmp = $.fn.popover.Constructor.prototype.show;
+    // $.fn.popover.Constructor.prototype.show = function () {
+    //   tmp.call(this);
+    //   if (this.options.callback) {
+    //     this.options.callback();
+    //   }
+    // };
+
+    var mapView = this;
+    $('#map-selection-icon').popover({
+      content: function() {
+        return $("#location-expanded-view").html()
+      }
+    });
+  },
+
+
 
   // initMap: function() {
   //   var mapProp = {

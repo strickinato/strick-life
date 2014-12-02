@@ -25,13 +25,14 @@ StrickLife.Views.MapView = Backbone.View.extend({
   },
 
   addMarkers: function() {
-    
+
     var markers = [];
     _.each(this.collection.models, function(model){
       var latLng = new google.maps.LatLng(model.get("latitude"), model.get("longitude"))
-      var marker = new google.maps.Marker({'postition': latLng});
+      var marker = new google.maps.Marker({'position': latLng});
       markers.push(marker);
     });
+    debugger
     var markerCluster = new MarkerClusterer(this.map, markers)
 
   },

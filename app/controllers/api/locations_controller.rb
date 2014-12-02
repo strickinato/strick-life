@@ -12,7 +12,7 @@ module Api
 
     def index
       @locations = [];
-      current_user.posts.each do |post|
+      current_user.posts.includes(:location).each do |post|
         loc = post.location
         @locations << loc unless @locations.include?(loc)
       end

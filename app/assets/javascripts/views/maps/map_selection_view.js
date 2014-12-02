@@ -32,7 +32,6 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
     //     this.options.callback();
     //   }
     // };
-
     var mapView = this;
     $('#map-selection-icon').popover({
       content: function() {

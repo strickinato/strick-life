@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session, only:[:create, :new, :destroy]
 
   namespace :api, defaults: {format: :json} do
+    resources :locations, only:[:index]
     resources :posts do
       resources :tags, only: [:index]
       resources :friends, only: [:index]

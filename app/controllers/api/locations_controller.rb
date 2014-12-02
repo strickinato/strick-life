@@ -8,7 +8,15 @@ module Api
       else
         render :json => @location.errors.full_messages, :status => 422
       end
+    end
 
+    def index
+      @posts = [];
+      current_user.posts.each do |post|
+        loc = post.location
+        @locations << loc unless @locations.include?(loc)
+      end
+      render :index
     end
 
 

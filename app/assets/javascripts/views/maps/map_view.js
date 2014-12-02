@@ -20,6 +20,8 @@ StrickLife.Views.MapView = Backbone.View.extend({
 
     var mapSpot = document.getElementById("gmap")
     var map = new google.maps.Map(mapSpot, mapProp);
+
+    
   }
 
 });

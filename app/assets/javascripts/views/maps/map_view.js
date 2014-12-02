@@ -32,7 +32,6 @@ StrickLife.Views.MapView = Backbone.View.extend({
       var marker = new google.maps.Marker({'position': latLng});
       markers.push(marker);
     });
-    debugger
     var markerCluster = new MarkerClusterer(this.map, markers)
 
   },

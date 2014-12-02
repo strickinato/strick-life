@@ -49,7 +49,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
 
     this.model.set(formData.post);
-    debugger
     if (this.model.isNew()) {
       this.collection.create(this.model, {
         success: function(model){
@@ -62,7 +61,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
         success: function(model) {
           formView.collection.fetch();
           var string = "date/" + formView.model.get("post_date").split("-").join("/")
-          debugger
           Backbone.history.navigate(string, {trigger: true})
         },
         error: function(){

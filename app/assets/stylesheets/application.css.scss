@@ -78,13 +78,26 @@ textarea {
 
 }
 
+/*Context NavBar */
+
+#context-area a {
+  font-size: 1.2;
+}
+#context-area a.selected {
+  color: #428bca;
+}
+
+
+
 #location-expanded-view {
   position: absolute;
   top: 100%;
-  left: 40px;
+  right: 0px;
   background-color: #eee;
   border: solid 1px #ddd;
+  border-top: none;
   border-radius: 5px;
+  border-bottom-right-radius: none;
 
 }
 

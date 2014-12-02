@@ -29,7 +29,8 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
     }.bind(this),0)
   },
 
-  togglePopover: function(){
+  togglePopover: function(event){
+    $(event.currentTarget).toggleClass("selected")
     $("#location-expanded-view").toggle();
   },
 

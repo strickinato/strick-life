@@ -1,6 +1,7 @@
 StrickLife.Views.MapView = Backbone.View.extend({
   initialize: function(options) {
     this.listenTo(this.collection, "sync", this.addMarkers)
+
   },
 
   template: JST["maps/map"],
@@ -13,12 +14,15 @@ StrickLife.Views.MapView = Backbone.View.extend({
   },
 
   initMap: function() {
+    var center = new google.maps.LatLng(37.508742,-122.120850)
     var mapProp = {
-      center: new google.maps.LatLng(37.508742,-122.120850),
+      center: center,
       zoom: 5,
       disableDefaultUI: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
+    this.lastCenter = center;
 
     this.map = new google.maps.Map(this.$('#gmap')[0], mapProp);
     google.maps.event.trigger(this.map, 'resize');

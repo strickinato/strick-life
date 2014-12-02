@@ -58,8 +58,9 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     });
     this._swapView(view)
 
-    // view.initMap();
-    // view.addMarkers();
+    google.maps.event.trigger(view.map, 'resize');
+    view.map.setCenter( view.lastCenter );
+
   },
 
 

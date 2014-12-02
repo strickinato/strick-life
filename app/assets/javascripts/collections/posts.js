@@ -32,15 +32,4 @@ StrickLife.Collections.Posts = Backbone.Collection.extend({
     return postHash
   },
 
-  toLocationHash: function() {
-    var locationHash = {};
-    debugger
-    _(this.models).each(function(post) {
-      var loc = post.get("location_id")
-      debugger
-      locationHash[loc].push
-    });
-    debugger
-    return locationHash
-  },
 });

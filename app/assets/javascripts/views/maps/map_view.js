@@ -25,16 +25,15 @@ StrickLife.Views.MapView = Backbone.View.extend({
   },
 
   addMarkers: function() {
-    var allLocations = StrickLife.posts.toLocationHash();
-
+    
     var markers = [];
-    // for (var i = 0; i < 100; i++) {
-    //   var latLng = new google.maps.LatLng(data.photos[i].latitude,
-    //     data.photos[i].longitude);
-    //     var marker = new google.maps.Marker({'position': latLng});
-    //     markers.push(marker);
-    //   }
-    //   var markerCluster = new MarkerClusterer(this.map, markers);
+    _.each(this.collection.models, function(model){
+      var latLng = new google.maps.LatLng(model.get("latitude"), model.get("longitude"))
+      var marker = new google.maps.Marker({'postition': latLng});
+      markers.push(marker);
+    });
+    var markerCluster = new MarkerClusterer(this.map, markers)
+
   },
 
 });

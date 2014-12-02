@@ -1,5 +1,6 @@
 StrickLife.Views.MapView = Backbone.View.extend({
   initialize: function(options) {
+    this.listenTo(this.collection, "sync", this.initMap)
   },
 
   template: JST["maps/map"],
@@ -19,9 +20,21 @@ StrickLife.Views.MapView = Backbone.View.extend({
     };
 
     var mapSpot = document.getElementById("gmap")
-    var map = new google.maps.Map(mapSpot, mapProp);
+    this.map = new google.maps.Map(mapSpot, mapProp);
+    this.addMarkers();
+  },
 
-    
-  }
+  addMarkers: function() {
+    var allLocations = StrickLife.posts.toLocationHash();
+
+    var markers = [];
+    // for (var i = 0; i < 100; i++) {
+    //   var latLng = new google.maps.LatLng(data.photos[i].latitude,
+    //     data.photos[i].longitude);
+    //     var marker = new google.maps.Marker({'position': latLng});
+    //     markers.push(marker);
+    //   }
+    //   var markerCluster = new MarkerClusterer(this.map, markers);
+  },
 
 });

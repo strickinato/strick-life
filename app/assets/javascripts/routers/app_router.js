@@ -51,10 +51,13 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
   },
 
   map: function(){
-    var view = new StrickLife.Views.MapView;
+    var view = new StrickLife.Views.MapView({
+      collection: StrickLife.posts
+    });
     this._swapView(view)
 
-    view.initMap();
+    // view.initMap();
+    // view.addMarkers();
   },
 
 

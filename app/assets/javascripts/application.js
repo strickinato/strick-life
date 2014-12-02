@@ -17,6 +17,7 @@
 //= require jquery-ui/jquery-ui.min
 //= require bootstrap
 //= require bootstrap3-editable/js/bootstrap-editable.min
+//= require marker_clusterer
 //= require turbolinks
 //= require underscore
 //= require backbone

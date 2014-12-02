@@ -47,9 +47,9 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     var formView = this;
 
 
-    debugger
 
-    this.model.set(formData);
+    this.model.set(formData.post);
+    debugger
     if (this.model.isNew()) {
       this.collection.create(this.model, {
         success: function(model){
@@ -61,7 +61,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
       this.model.save({},{
         success: function(model) {
           formView.collection.fetch();
-          //Navigate back to newly saved day-- perhaps change POSTVIEW
           var string = "date/" + formView.model.get("post_date").split("-").join("/")
           debugger
           Backbone.history.navigate(string, {trigger: true})
@@ -76,11 +75,11 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   getFormData: function(){
     var formData = this.$el.serializeJSON();
     formData.post.user_id = parseInt(StrickLife.currentUser.id);
-    formData.location_data = {};
-    formData.location_data.latitude = StrickLife.currentCoords.lat()
-    formData.location_data.longitude = StrickLife.currentCoords.lng()
-    formData.location_data.address = StrickLife.currentAddress
-    formData.location_data.place_id = StrickLife.currentPlaceId
+    // formData.post.location_data = {};
+    // formData.post.location_data.latitude = StrickLife.currentCoords.lat()
+    // formData.post.location_data.longitude = StrickLife.currentCoords.lng()
+    // formData.post.location_data.address = StrickLife.currentAddress
+    // formData.post.location_data.place_id = StrickLife.currentPlaceId
 
     return formData
   },

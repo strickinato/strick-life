@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201151804) do
+ActiveRecord::Schema.define(version: 20141201235527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141201151804) do
     t.datetime "updated_at"
     t.date     "post_date",   default: '2014-11-26',          null: false
     t.time     "post_time",   default: '2000-01-01 17:10:46', null: false
-    t.integer  "location_id", default: 1
+    t.integer  "location_id"
   end
 
   create_table "taggings", force: true do |t|

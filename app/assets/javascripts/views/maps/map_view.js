@@ -16,10 +16,12 @@ StrickLife.Views.MapView = Backbone.View.extend({
     var mapProp = {
       center: new google.maps.LatLng(37.508742,-122.120850),
       zoom: 5,
+      disableDefaultUI: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
     this.map = new google.maps.Map(this.$('#gmap')[0], mapProp);
+    google.maps.event.trigger(this.map, 'resize');
 
     this.infoWindow = new google.maps.InfoWindow({
       content: "<div id='map-info-window-address'></div><div id='map-info-window'></div>"
@@ -44,8 +46,8 @@ StrickLife.Views.MapView = Backbone.View.extend({
         });
 
         setTimeout(function(){
+          $("#map-info-window-address").html(model.get("address"))
           $("#map-info-window").html(view.render().$el);
-          $("map-info-window").html("<h1>Hello</h1>")
         }, 0)
 
 

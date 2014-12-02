@@ -1,7 +1,7 @@
 module Api
   class PostsController < ApiController
     def index
-      @posts = Post.where({user_id: current_user.id})
+      @posts = Post.where({user_id: current_user.id}).includes(:tags, :friends)
       render :index
     end
 

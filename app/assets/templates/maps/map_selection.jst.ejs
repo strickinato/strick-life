@@ -1,17 +1,11 @@
 <a
-  data-placement="bottom"
-  data-toggle="popover"
-  data-title="Select Location"
-  data-container="body"
-  data-html="true"
   href="javascript:void(0)"
   type="button"
   class="btn btn-primary"
-  id="map-selection-icon">
-<span class="glyphicon glyphicon-map-marker" ></span>
-</a>
+  id="map-selection-icon"
+  ><span class="glyphicon glyphicon-map-marker" ></span></a>
 
-<div id="location-expanded-view" class="navbar-left hide">
+<div id="location-expanded-view" class="navbar-left" style="display: none">
   <div id="current-location-view"><%= this.currentLocation %></div>
   <input type="text" id="map-search-box" class="form-control">
 </div>

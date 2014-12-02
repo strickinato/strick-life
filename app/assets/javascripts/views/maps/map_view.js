@@ -23,7 +23,7 @@ StrickLife.Views.MapView = Backbone.View.extend({
     this.map = new google.maps.Map(mapSpot, mapProp);
 
     this.infoWindow = new google.maps.InfoWindow({
-      content: '"<div id="map-info-window"></div>'
+      content: '"<div id="map-info-window">AYA</div>'
     });
 
     this.addMarkers();
@@ -46,7 +46,10 @@ StrickLife.Views.MapView = Backbone.View.extend({
           collection: markerPosts
         });
 
-        //$("#map-info-window").html(view.render().$el)
+        setTimeout(function(){
+          $("#map-info-window").html(view.render().$el);
+        }, 0)
+
 
       }.bind(model));
     });

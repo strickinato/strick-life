@@ -26,7 +26,7 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
 
   inputMonthViews: function(){
     var thisView = this;
-    var allPosts = StrickLife.posts.toHash();
+    var allPosts = this.collection.toHash();
     var years = _.keys(allPosts).sort(function(a, b){
       return parseInt(a) - parseInt(b);
     });

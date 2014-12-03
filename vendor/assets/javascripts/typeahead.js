@@ -159,10 +159,15 @@
     },
     selectModel: function(model) {
       // Update the input field with the key attribute of the select model
-      this.$input.val(model.get(this.options.key));
-
+      if(model !== undefined) {
+        this.$input.val(model.get(this.options.key));
+      } else {
+        var name = this.$input.val();
+        model = new StrickLife.Models.Tag({name: name})
+        debugger
+      }
       //#STRICK clear the val
-      //this.$input.val("")
+      this.$input.val("")
 
       // Hide the menu
       this.hide();
@@ -192,7 +197,9 @@
         case 13: // Enter
         // TODO shown needs to be returned to its original function (as an
         // indicator of whether the menu is currently displayed or not)
-        if (!this.shown) return;
+
+        //#STRICK commented out in order to create new tags.
+        //if (!this.shown) return;
         this.select();
         break;
         case 27: // escape

@@ -4,6 +4,8 @@ StrickLife.Views.MapView = Backbone.View.extend({
 
   },
 
+  className: "map-container",
+
   template: JST["maps/map"],
 
   render: function(){

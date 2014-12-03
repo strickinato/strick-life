@@ -21,6 +21,9 @@ window.StrickLife = {
     StrickLife.posts = new StrickLife.Collections.Posts();
     StrickLife.posts.fetch();
 
+    StrickLife.tags = new StrickLife.Collections.Tags();
+    StrickLife.tags.fetch();
+
     this.getLocationData();
 
     new StrickLife.Routers.AppRouter({

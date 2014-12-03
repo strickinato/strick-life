@@ -21,6 +21,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require typeahead
 //= require strick_life
 //= require_tree ../templates
 //= require_tree ./models

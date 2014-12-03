@@ -16,6 +16,7 @@
 //= require jquery.sticky-kit
 //= require jquery-ui/jquery-ui.min
 //= require bootstrap
+//= require 'epiceditor'
 //= require marker_clusterer
 //= require turbolinks
 //= require underscore

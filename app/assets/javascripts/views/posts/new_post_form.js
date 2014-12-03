@@ -19,6 +19,13 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     return this;
   },
 
+  initMarkDown: function() {
+    var editor = new EpicEditor({
+      textarea: "new-post-body",
+      focusOnLoad: true,
+    }).load();
+  },
+
   addDateTaggerToNav: function() {
     var view = new StrickLife.Views.DateSelectionView();
     StrickLife.navView.addSubview("#context-area", view)

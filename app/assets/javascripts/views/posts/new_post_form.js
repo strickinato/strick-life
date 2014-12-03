@@ -2,6 +2,13 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   initialize: function(options) {
     this.listenTo(this.model, "sync", this.render)
 
+    if (options.postTagCollection === undefined ) {
+      this.postTagCollection = new StrickLife.Collections.Tags();
+    } else {
+      this.postTagCollection = options.postTagCollection;
+    }
+    debugger
+
   },
   className: "posts-form",
   template: JST["posts/form"],
@@ -29,6 +36,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   // },
   addTagTaggerToNav: function() {
     var view = new StrickLife.Views.TagsIndexForm({
+      postTagCollection: this.postTagCollection,
       collection: StrickLife.tags
     });
     StrickLife.navView.addSubview("#context-area", view)
@@ -58,11 +66,12 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
   createPost: function() {
     //event.preventDefault();
-
+    debugger
     var formData = this.$el.serializeJSON();
     formData = this.getUserData(formData);
     formData = this.getLocationData(formData);
     formData = this.getDateData(formData);
+    formData = this.getTagData(formData);
 
     var formView = this;
 
@@ -108,5 +117,10 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     formData.post.post_date = $("#nav-date-actual-date").val()
     return formData;
   },
+
+  getTagData: function(formData) {
+    formData.post.tags = [];
+    debugger
+  }
 
 });

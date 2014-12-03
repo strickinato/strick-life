@@ -44,10 +44,12 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
   },
 
   edit: function(id){
-    var post = StrickLife.posts.get(id)
+    var post = StrickLife.posts.get(id);
+    var tagsCollection = new StrickLife.Collections.Tags(post.tags().models);
     var view = new StrickLife.Views.PostsForm({
       model: post,
-      collection: StrickLife.posts
+      collection: StrickLife.posts,
+      postTagCollection: tagsCollection
     });
 
     this._swapView(view)

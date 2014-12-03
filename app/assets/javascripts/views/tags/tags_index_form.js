@@ -1,6 +1,12 @@
 StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
   initialize: function(options){
-    this.currentTags = new StrickLife.Collections.Tags();
+    this.currentTags = options.postTagCollection
+
+    var view = this
+    _.each(this.currentTags.models, function(model){
+      debugger
+      view.selectTag(model)
+    })
 
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "selected", this.selectTag);
@@ -26,6 +32,7 @@ StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
   },
 
   selectTag: function(model) {
+    debugger
     var tagView = new StrickLife.Views.SingleTagItem({
       parentView: this,
       model: model

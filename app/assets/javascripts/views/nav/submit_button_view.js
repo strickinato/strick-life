@@ -19,7 +19,6 @@ StrickLife.Views.SubmitButtonView = Backbone.View.extend({
   },
 
   submitForm: function() {
-    debugger
     this.form.createPost();
   },
 

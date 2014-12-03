@@ -65,7 +65,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
   createPost: function() {
     //event.preventDefault();
-    debugger
     var formData = this.$el.serializeJSON();
     formData = this.getUserData(formData);
     formData = this.getLocationData(formData);
@@ -74,6 +73,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
     var formView = this;
 
+    debugger
     this.model.set(formData.post);
     if (this.model.isNew()) {
       this.collection.create(this.model, {
@@ -119,7 +119,10 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
   getTagData: function(formData) {
     formData.post.tags = [];
-    debugger
-  }
+    _.each(this.postTagCollection.models, function(tag){
+      formData.post.tags.push(tag);
+    });
+    return formData
+  },
 
 });

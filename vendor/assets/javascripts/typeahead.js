@@ -104,7 +104,7 @@
       this.shown = false; // Is the menu shown?
       this.mousedover = false; // Is the mouse over the typeahead (incl. menu)?
     },
-    template: '<input type="text" class="form-control" placeholder="Search" /><ul class="dropdown-menu"></ul>',
+    template: '<input type="text" class="form-control" placeholder="Search Tags" /><ul class="dropdown-menu"></ul>',
     nativeEvents: {
       'keyup': 'keyup',
       'keypress': 'keypress',

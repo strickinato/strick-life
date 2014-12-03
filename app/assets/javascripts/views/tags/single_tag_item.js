@@ -4,8 +4,9 @@ StrickLife.Views.SingleTagItem = Backbone.View.extend({
 
   className: "single-tag-item",
 
+  tagName: "li",
+
   render: function(){
-    debugger
     var content = this.template({
       tag: this.model
     });

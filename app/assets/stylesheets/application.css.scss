@@ -102,23 +102,11 @@ textarea {
   display:inline-block;
 }
 
-
-
-#location-expanded-view {
-  position: absolute;
-  top: 100%;
-  right: 0px;
-  background-color: #eee;
-  border: solid 1px #ddd;
-  border-top: none;
-  border-radius: 5px;
-  border-bottom-right-radius: none;
-}
-
 .expanded-view {
   position: absolute;
   top: 100%;
   right: 0px;
+  width: 400px;
   background-color: #eee;
   border: solid 1px #ddd;
   border-top: none;

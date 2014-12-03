@@ -28,16 +28,23 @@
 .month-header {
   display: block;
   background-color: white;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   z-index: 100;
+  color: #428bca
 }
 
-.day-views{
+.day-views.row{
+  border-top: solid 1px #CCC;
+  border-bottom: solid 1px #CCC;
 }
 
 .day-post-container {
-  border: solid 1px green;
+
   float: left;
   background-color: #EEE;
+  padding: 0px;
+
 }
 
 .day-post-container:hover {
@@ -46,10 +53,14 @@
 
 .day-min-date {
   float: left;
+  text-align: center;
+  font-size: 32px;
 }
 
 .post-min {
-  border: dotted 1px gray;
+  height: 80px;
+  width: 100%;
+  border-bottom: dotted 1px #EEE;
 }
 
 .post-full{
@@ -107,6 +118,7 @@ textarea {
 
 
 
+
 /*!
 * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
 * Code licensed under the Apache License v2.0.
@@ -141,6 +153,19 @@ textarea {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  text-align: center;
+  font-size: 3em;
+}
+
+#sidebar-items {
+  position: absolute;
+  top: 25%;
+  display: block;
+  text-align: center;
+}
+.sidebar-items {
+  text-align: center;
+  padding: 10px 0px;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -149,7 +174,6 @@ textarea {
 
 #page-content-wrapper {
   width: 100%;
-  padding: 15px;
   margin-top: 50px
 }
 
@@ -224,7 +248,6 @@ textarea {
   }
 
   #page-content-wrapper {
-    padding: 20px;
   }
 
   #wrapper.toggled #page-content-wrapper {

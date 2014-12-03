@@ -14,12 +14,8 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
       posts: this.collection
     });
     this.$el.html(content)
-
     this.attachSubviews();
-    $(".sticky-month-header").stick_in_parent({
-      offset_top: 50,
-      spacer: false
-    })
+    this.makeItSticky();
 
     return this;
   },
@@ -49,5 +45,11 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
         thisView.addSubview("#all-the-posts", monthView)
       }
     }
+  },
+
+  makeItSticky: function() {
+    $(".sticky-month-header").stick_in_parent({
+      offset_top: 50,
+    });
   },
 });

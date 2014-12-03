@@ -17,6 +17,7 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     });
 
     this._swapView(view)
+    view.makeItSticky();
   },
 
   new: function() {

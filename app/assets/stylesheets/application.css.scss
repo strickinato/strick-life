@@ -98,6 +98,10 @@ textarea {
   color: #428bca;
 }
 
+.nav-form-item{
+  display:inline-block;
+}
+
 
 
 #location-expanded-view {
@@ -109,7 +113,17 @@ textarea {
   border-top: none;
   border-radius: 5px;
   border-bottom-right-radius: none;
+}
 
+.expanded-view {
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  background-color: #eee;
+  border: solid 1px #ddd;
+  border-top: none;
+  border-radius: 5px;
+  border-bottom-right-radius: none;
 }
 
 .pac-container {

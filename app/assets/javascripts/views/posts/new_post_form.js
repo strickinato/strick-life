@@ -22,6 +22,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
       defaultDate: 0
     });
 
+    this.addDateTaggerToNav();
     this.addLocationTaggerToNav();
 
 
@@ -32,6 +33,12 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     var view = new StrickLife.Views.MapSelectionView();
     StrickLife.navView.addSubview("#context-area", view)
     view.createAutocomplete();
+  },
+
+  addDateTaggerToNav: function() {
+    var view = new StrickLife.Views.DateSelectionView();
+    StrickLife.navView.addSubview("#context-area", view)
+    view.addDatePicker();
   },
 
   tagName: "form",

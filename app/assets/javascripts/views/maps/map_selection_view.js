@@ -8,9 +8,11 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
     var content = this.template();
     this.insertCurrentLocation();
     this.$el.html(content);
-
+    
     return this;
   },
+
+  className: "nav-form-item",
 
   events: {
     "click #map-selection-icon" : "togglePopover",
@@ -46,6 +48,5 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
       $("#current-location-view").trigger("locationLoad")
     });
   },
-
 
 });

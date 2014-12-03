@@ -9,19 +9,14 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   render: function(){
     var content = this.template({
       post: this.model,
-      });
+    });
     this.$el.html(content)
 
+    this.addSubmitButtonToNav();
     this.addDateTaggerToNav();
     this.addLocationTaggerToNav();
 
     return this;
-  },
-
-  addLocationTaggerToNav: function(){
-    var view = new StrickLife.Views.MapSelectionView();
-    StrickLife.navView.addSubview("#context-area", view)
-    view.createAutocomplete();
   },
 
   addDateTaggerToNav: function() {
@@ -30,14 +25,23 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     view.addDatePicker();
   },
 
-  tagName: "form",
-
-  events: {
-    "click button": "createPost"
+  addLocationTaggerToNav: function(){
+    var view = new StrickLife.Views.MapSelectionView();
+    StrickLife.navView.addSubview("#context-area", view)
+    view.createAutocomplete();
   },
 
-  createPost: function(event) {
-    event.preventDefault();
+  addSubmitButtonToNav: function(){
+    var view = new StrickLife.Views.SubmitButtonView({
+      form: this
+    });
+    StrickLife.navView.addSubview("#context-area", view);
+  },
+
+  tagName: "form",
+
+  createPost: function() {
+    //event.preventDefault();
 
     var formData = this.$el.serializeJSON();
     formData = this.getUserData(formData);
@@ -87,6 +91,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   getDateData: function(formData){
     formData.post.post_date = $("#nav-date-actual-date").val()
     return formData;
-  }
+  },
 
 });

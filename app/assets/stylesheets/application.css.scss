@@ -35,7 +35,7 @@ html, body {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   z-index: 100;
-  color: #428bca
+  color: #428bca;
 }
 
 .day-views.row{
@@ -65,6 +65,23 @@ html, body {
   height: 80px;
   width: 100%;
   border-bottom: dotted 1px #EEE;
+  position: relative;
+}
+
+.post-min-tags {
+  position: absolute;
+  bottom: 0px;
+  left: 5px
+}
+
+.post-min-tags li {
+  display: inline;
+  list-style-type: none;
+  color: white;
+  background-color: #428bca;
+  border-radius: 5px;
+  padding: 2px 3px;
+  margin-right: 5px;
 }
 
 .post-full{

@@ -160,6 +160,9 @@
     selectModel: function(model) {
       // Update the input field with the key attribute of the select model
       this.$input.val(model.get(this.options.key));
+
+      //#STRICK clear the val
+      this.$input.val("")
       // Hide the menu
       this.hide();
       // TODO What other parameters should be in the trigger?

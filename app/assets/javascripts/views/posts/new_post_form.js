@@ -118,10 +118,13 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   },
 
   getTagData: function(formData) {
-    formData.post.tags = [];
+    formData.post.all_tags = "";
     _.each(this.postTagCollection.models, function(tag){
-      formData.post.tags.push(tag);
+      formData.post.all_tags += tag.toJSON().name
+      formData.post.all_tags += ", "
     });
+    var num = (formData.post.all_tags.length - 2)
+    formData.post.all_tags = formData.post.all_tags.slice(0, num)
     return formData
   },
 

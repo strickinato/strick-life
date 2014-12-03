@@ -21,7 +21,9 @@ module Api
     end
 
     def create
+      debugger
       @post = Post.new(post_params)
+      @post.all_tags = params[:all_tags];
       location = Location.where({
         address: location_params[:address]
         }).first
@@ -46,7 +48,7 @@ module Api
 
     private
     def post_params
-      params.require(:post).permit(:user_id, :body, :post_date)
+      params.require(:post).permit(:user_id, :body, :post_date, :all_tags)
     end
     def location_params
       params.require(:location_data).permit(:longitude, :latitude, :address, :place_id)

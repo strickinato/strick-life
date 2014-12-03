@@ -7,24 +7,13 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   template: JST["posts/form"],
 
   render: function(){
-    var date = new Date();
-    var today = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear()
-    var actualToday = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate()
     var content = this.template({
       post: this.model,
-      defaultDate: today,
-      actualDefaultDate: actualToday
       });
     this.$el.html(content)
-    this.$('#form-date-picker').datepicker({
-      altFormat: "yy-mm-dd",
-      altField: "#form-date-actual-date",
-      defaultDate: 0
-    });
 
     this.addDateTaggerToNav();
     this.addLocationTaggerToNav();
-
 
     return this;
   },
@@ -50,10 +39,12 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   createPost: function(event) {
     event.preventDefault();
 
-    var formData = this.getFormData()
+    var formData = this.$el.serializeJSON();
+    formData = this.getUserData(formData);
+    formData = this.getLocationData(formData);
+    formData = this.getDateData(formData);
+
     var formView = this;
-
-
 
     this.model.set(formData.post);
     if (this.model.isNew()) {
@@ -77,16 +68,25 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     }
   },
 
-  getFormData: function(){
-    var formData = this.$el.serializeJSON();
+  getUserData: function(formData){
     formData.post.user_id = parseInt(StrickLife.currentUser.id);
+
+    return formData;
+  },
+
+  getLocationData: function(formData){
     formData.post.location_data = {};
     formData.post.location_data.latitude = StrickLife.currentCoords.lat()
     formData.post.location_data.longitude = StrickLife.currentCoords.lng()
     formData.post.location_data.address = StrickLife.currentAddress
     formData.post.location_data.place_id = StrickLife.currentPlaceId
 
-    return formData
+    return formData;
   },
+
+  getDateData: function(formData){
+    formData.post.post_date = $("#nav-date-actual-date").val()
+    return formData;
+  }
 
 });

@@ -32,7 +32,10 @@ StrickLife.Views.DateSelectionView = Backbone.View.extend({
     this.$("#nav-date-picker").datepicker({
       altFormat: "yy-mm-dd",
       altField: "#nav-date-actual-date",
-      defaultDate: 0
+      defaultDate: 0,
+      onSelect: function(){
+        alert("yo");
+      }
     })
   }
 

@@ -1,7 +1,14 @@
 module Api
-  class PostsController < ApiController
+  class TagsController < ApiController
     def index
-      @posts = Post.all
+      @tags = [];
+      current_user.posts.includes(:tags).each do |post|
+        tagArray = post.tags
+        @tags += tagArray
+      end
+      @tags.uniq!
+      
+      render :index
     end
   end
 end

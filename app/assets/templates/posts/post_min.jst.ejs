@@ -2,7 +2,7 @@
 
 <div class="post-min-tags">
   <ul>
-    <% _(post.get("tags")).each(function(tag){ %>
+    <% post.tags().each(function(tag){ %>
     <li><%= tag.escape('name') %></li>
     <% }); %>
   </ul>

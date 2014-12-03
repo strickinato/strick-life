@@ -73,7 +73,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
     var formView = this;
 
-    debugger
     this.model.set(formData.post);
     if (this.model.isNew()) {
       this.collection.create(this.model, {

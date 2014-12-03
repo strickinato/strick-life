@@ -12,6 +12,7 @@ module Api
 
     def update
       @post = Post.find(params[:id])
+      @post.all_tags = params[:all_tags]
 
       if @post.update(post_params)
         render :show
@@ -21,7 +22,6 @@ module Api
     end
 
     def create
-      debugger
       @post = Post.new(post_params)
       @post.all_tags = params[:all_tags];
       location = Location.where({

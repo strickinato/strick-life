@@ -164,7 +164,6 @@
       } else {
         var name = this.$input.val();
         model = new StrickLife.Models.Tag({name: name})
-        debugger
       }
       //#STRICK clear the val
       this.$input.val("")

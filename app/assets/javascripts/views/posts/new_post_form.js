@@ -7,7 +7,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     } else {
       this.postTagCollection = options.postTagCollection;
     }
-    debugger
 
   },
   className: "posts-form",

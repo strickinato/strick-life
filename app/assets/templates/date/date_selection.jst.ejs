@@ -7,5 +7,14 @@
 
 <div id="date-expanded-view" class="expanded-view" style="display: none">
   <div id="current-date-view"></div>
-  <input type="text" id="nav-date-picker">
+  <input
+    type="text"
+    id="nav-date-picker"
+    class="form-control"
+    placeholder="<%= defaultDate %>">
+  <input
+    type="hidden"
+    id="nav-date-actual-date"
+    name="post[post_date]"
+    value="<%= actualDefaultDate %>">
 </div>

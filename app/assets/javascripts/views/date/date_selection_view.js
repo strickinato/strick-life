@@ -5,7 +5,14 @@ StrickLife.Views.DateSelectionView = Backbone.View.extend({
   className: "nav-form-item",
 
   render: function(){
-    var content = this.template();
+    var date = new Date();
+    var today = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear()
+    var actualToday = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate()
+    var content = this.template({
+      //post: this.model,
+      defaultDate: today,
+      actualDefaultDate: actualToday
+    });
     this.$el.html(content);
 
     return this;
@@ -22,7 +29,11 @@ StrickLife.Views.DateSelectionView = Backbone.View.extend({
   },
 
   addDatePicker: function() {
-    this.$("#nav-date-picker").datepicker()
+    this.$("#nav-date-picker").datepicker({
+      altFormat: "yy-mm-dd",
+      altField: "#nav-date-actual-date",
+      defaultDate: 0
+    })
   }
 
 

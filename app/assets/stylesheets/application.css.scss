@@ -31,12 +31,19 @@ html, body{
 }
 
 .month-header {
+  font-size: 24px;
+  text-decoration: bold;
   display: block;
   background-color: white;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+  padding-left: 5px;
   z-index: 100;
   color: #428bca;
+}
+
+.day-views {
+  background-color: #F4F9FF;
 }
 
 .day-views.row{
@@ -45,15 +52,13 @@ html, body{
 }
 
 .day-post-container {
-
   float: left;
-  background-color: #EEE;
+  background-color: #F4F9FF;
   padding: 0px;
-
 }
 
 .day-post-container:hover {
-  background-color: #FFF;
+  background-color: #F9FDFF;
 }
 
 .day-min-date {
@@ -68,6 +73,11 @@ html, body{
   border-bottom: dotted 1px #EEE;
   position: relative;
   font-size: 18px;
+}
+
+.post-min:hover {
+  text-decoration: bold;
+  background-color: red;
 }
 
 .post-min-tags {

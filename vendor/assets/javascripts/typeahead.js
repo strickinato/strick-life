@@ -163,6 +163,10 @@
       // Hide the menu
       this.hide();
       // TODO What other parameters should be in the trigger?
+
+      //#STRICK addition to get it to add the models
+      this.collection.trigger('selected', model)
+
       this.trigger('selected', model, this.collection)
       // Empty the results
       this.results = [];

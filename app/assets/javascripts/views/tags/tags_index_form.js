@@ -1,6 +1,8 @@
-StrickLife.Views.TagsIndexForm = Backbone.View.extend({
+StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
   initialize: function(options){
     this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "selected", this.selectTag)
+
   },
 
   className: "nav-form-item",
@@ -12,6 +14,7 @@ StrickLife.Views.TagsIndexForm = Backbone.View.extend({
     });
     this.$el.html(content)
     this.addTypeAhead();
+    this.attachSubviews();
 
     return this;
   },
@@ -20,7 +23,16 @@ StrickLife.Views.TagsIndexForm = Backbone.View.extend({
     "click #tag-selection-icon" : "togglePopover",
   },
 
+  selectTag: function(model) {
+    var tagView = new StrickLife.Views.SingleTagItem({
+      model: model
+    })
+
+    this.addSubview("#current-tags-view", tagView)
+  },
+
   togglePopover: function(event){
+    $(event.currentTarget).siblings().removeClass("selected")
     $(event.currentTarget).toggleClass("selected")
     $("#tags-expanded-view").toggle();
   },

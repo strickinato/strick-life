@@ -28,7 +28,8 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     });
 
     this._swapView(view);
-    view.initMarkDown();
+    //#MARKDOWN
+    // view.initMarkDown();
   },
 
   singleDay: function(year, month, day) {

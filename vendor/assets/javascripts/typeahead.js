@@ -39,6 +39,9 @@
       //#STRICK fixed to work with my specific situation
       var template = _.template(this.template);
       var compiled = template({name: this.model.toJSON().name})
+
+      // Original
+      //this.$el.html(_.template(this.template, this.model.toJSON()))
       this.$el.html(compiled)
       return this;
     },

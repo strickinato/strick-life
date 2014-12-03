@@ -1,4 +1,16 @@
 StrickLife.Views.SingleTagItem = Backbone.View.extend({
+  initialize: function(options){
+    this.parentView = options.parentView
+  },
+
+
+  events: {
+    "click": "removeThisSubview"
+  },
+
+  removeThisSubview: function(){
+    this.parentView.removeSubview("#current-tags-view", this)
+  },
 
   template: JST["tags/single_tag_item"],
 

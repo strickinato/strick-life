@@ -1,8 +1,9 @@
 StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
   initialize: function(options){
-    this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(this.collection, "selected", this.selectTag)
+    this.currentTags = new StrickLife.Collections.Tags();
 
+    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "selected", this.selectTag);
   },
 
   className: "nav-form-item",
@@ -21,14 +22,20 @@ StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
 
   events: {
     "click #tag-selection-icon" : "togglePopover",
+    //"click #current-tags-view li" : "removeTag"
   },
 
   selectTag: function(model) {
     var tagView = new StrickLife.Views.SingleTagItem({
+      parentView: this,
       model: model
-    })
+    });
+    this.addSubview("#current-tags-view", tagView);
+  },
 
-    this.addSubview("#current-tags-view", tagView)
+  removeTag: function(event) {
+    debugger
+    $(event.currentTarget)
   },
 
   togglePopover: function(event){

@@ -31,11 +31,11 @@ StrickLife.Views.DateSelectionView = Backbone.View.extend({
       $(this).removeClass("selected");
     });
     $(".expanded-view").each(function(item){
-      $(this).hide();
+      $(this).slideUp(100);
     });
     if (!open) {
       $(event.currentTarget).addClass("selected")
-      $("#date-expanded-view").show();
+      $("#date-expanded-view").slideDown(100);
     }
   },
 

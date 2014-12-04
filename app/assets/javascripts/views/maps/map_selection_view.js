@@ -52,11 +52,11 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
       $(this).removeClass("selected");
     });
     $(".expanded-view").each(function(item){
-      $(this).hide();
+      $(this).slideUp(100);
     });
     if (!open) {
       $(event.currentTarget).addClass("selected")
-      $("#location-expanded-view").show();
+      $("#location-expanded-view").slideDown(100);
     }
   },
 

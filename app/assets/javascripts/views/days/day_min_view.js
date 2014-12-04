@@ -8,7 +8,16 @@ StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
     this.generatePostViews();
   },
 
-  template: JST["days/day_min"],
+  template: function() {
+    switch (this.source) {
+    case undefined:
+      return JST["days/day_min"];
+      break;
+    case "home":
+      return JST["days/day_min"];
+      break;
+    }
+  },
 
   className: "row",
 

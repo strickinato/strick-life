@@ -63,7 +63,7 @@ StrickLife.Views.Calendar = Backbone.View.extend({
       return event.model
     });
     var posts = new StrickLife.Collections.Posts(models)
-    var postsView = new StrickLife.Views.PostsIndex({
+    var postsView = new StrickLife.Views.DayMinView({
       collection: posts
     });
 

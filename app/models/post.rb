@@ -13,6 +13,10 @@ class Post < ActiveRecord::Base
   has_many :tags, through: :taggings, source: :taggable, source_type: "Tag"
   has_many :friends, through: :taggings, source: :taggable, source_type: "Friend"
 
+  def self.tagged_with(name)
+    Tag.find_by_name!(name).posts
+  end
+
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
       Tag.where(name: name.strip).first_or_create!

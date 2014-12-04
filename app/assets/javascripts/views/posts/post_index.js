@@ -1,5 +1,6 @@
 StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   initialize: function(){
+    this.filterCollection = new StrickLife.Collections.Tags();
     this.listenTo(this.collection, "sync", this.render);
   },
 

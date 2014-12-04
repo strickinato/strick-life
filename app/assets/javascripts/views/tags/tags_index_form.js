@@ -1,6 +1,6 @@
 StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
   initialize: function(options){
-    this.currentTags = options.postTagCollection
+    this.currentTags = options.postTagCollection;
 
     var view = this
     _.each(this.currentTags.models, function(model){
@@ -28,7 +28,6 @@ StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
 
   events: {
     "click #tag-selection-icon" : "togglePopover",
-    //"click #current-tags-view li" : "removeTag"
   },
 
   selectTag: function(model) {
@@ -58,9 +57,19 @@ StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
   },
 
   togglePopover: function(event){
-    $(event.currentTarget).siblings().removeClass("selected")
-    $(event.currentTarget).toggleClass("selected")
-    $("#tags-expanded-view").toggle();
+    //Needs Refactoring
+
+    var open = $(event.currentTarget).hasClass("selected");
+    $(".nav-form-item a").each(function(item){
+      $(this).removeClass("selected");
+    });
+    $(".expanded-view").each(function(item){
+      $(this).hide();
+    });
+    if (!open) {
+      $(event.currentTarget).addClass("selected")
+      $("#tags-expanded-view").show();
+    }
   },
 
   addTypeAhead: function() {
@@ -69,4 +78,5 @@ StrickLife.Views.TagsIndexForm = Backbone.CompositeView.extend({
     });
     $('#tag-search-box').html(typeahead.render().el);
   },
+
 });

@@ -24,8 +24,17 @@ StrickLife.Views.DateSelectionView = Backbone.View.extend({
 
 
   togglePopover: function(event){
-    $(event.currentTarget).toggleClass("selected")
-    $("#date-expanded-view").toggle();
+    var open = $(event.currentTarget).hasClass("selected");
+    $(".nav-form-item a").each(function(item){
+      $(this).removeClass("selected");
+    });
+    $(".expanded-view").each(function(item){
+      $(this).hide();
+    });
+    if (!open) {
+      $(event.currentTarget).addClass("selected")
+      $("#date-expanded-view").show();
+    }
   },
 
   addDatePicker: function() {

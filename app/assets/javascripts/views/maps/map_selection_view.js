@@ -8,7 +8,7 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
     var content = this.template();
     this.insertCurrentLocation();
     this.$el.html(content);
-    
+
     return this;
   },
 
@@ -32,8 +32,17 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
   },
 
   togglePopover: function(event){
-    $(event.currentTarget).toggleClass("selected")
-    $("#location-expanded-view").toggle();
+    var open = $(event.currentTarget).hasClass("selected");
+    $(".nav-form-item a").each(function(item){
+      $(this).removeClass("selected");
+    });
+    $(".expanded-view").each(function(item){
+      $(this).hide();
+    });
+    if (!open) {
+      $(event.currentTarget).addClass("selected")
+      $("#location-expanded-view").show();
+    }
   },
 
   createAutocomplete: function() {

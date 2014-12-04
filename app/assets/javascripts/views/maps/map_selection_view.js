@@ -2,7 +2,7 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
   initialize: function(options) {
     this.postLocation = options.postLocation
     if(!!this.postLocation) {
-      this.postAddress = this.postLocation.address
+      this.currentAddress = this.postLocation.address
     }
 
   },
@@ -26,16 +26,22 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
     "locationLoad #current-location-view": "insertCurrentLocation"
   },
 
-  insertCurrentLocation: function() {
-    var address
-    if(!!this.postAddress) {
-      address = this.postAddress
-    } else if (!!StrickLife.currentAddress) {
-      address = StrickLife.currentAddress
+  getAddress: function() {
+    if (this.currentAddress !== undefined) {
+      console.log(this.currentAddress)
+      return this.currentAddress
+    } else if (StrickLife.currentAddress) {
+      console.log("StrickLife.current")
+      return StrickLife.currentAddress
       this.postAddress = StrickLife.currentAddress
     } else {
-      address = "loading address..."
+      return "loading address..."
     };
+  },
+
+  insertCurrentLocation: function() {
+    var address = this.getAddress()
+    console.log(address)
     setTimeout(function(){
       $("#current-location-view").html(address)
     }.bind(this),0)
@@ -68,12 +74,14 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
   createAutocomplete: function() {
     var input = document.getElementById("map-search-box")
     var autocomplete = new google.maps.places.Autocomplete(input);
+    var view = this
 
     google.maps.event.addListener(autocomplete, 'place_changed', function(location) {
       var place = autocomplete.getPlace();
-      this.currentAddress = place.formatted_address;
-      this.currentCoords = place.geometry.location;
-      this.currentPlaceId = place.place_id;
+      view.currentAddress = place.formatted_address;
+      view.currentCoords = place.geometry.location;
+      view.currentPlaceId = place.place_id;
+      console.log(place)
       $("#current-location-view").trigger("locationLoad")
     });
   },

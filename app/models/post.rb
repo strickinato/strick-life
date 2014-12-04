@@ -13,9 +13,9 @@ class Post < ActiveRecord::Base
   has_many :tags, through: :taggings, source: :taggable, source_type: "Tag"
   has_many :friends, through: :taggings, source: :taggable, source_type: "Friend"
 
-  def self.tagged_with(name)
-    Tag.find_by_name!(name).posts
-  end
+  # def self.tagged_with(name)
+  #   Tag.find_by_name!(name).posts
+  # end
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
@@ -27,7 +27,11 @@ class Post < ActiveRecord::Base
     self.tags.map(&:name).join(", ")
   end
 
-  # def location=(location)
-  #
-  # end
+  def set_location=(params)
+    Location.where(address: params[:address]).first_or_create! do |location|
+      location.place_id = params[:place_id]
+      location.latitude = params[:latitude]
+      location.longitude = params[:longitude]
+    end
+  end
 end

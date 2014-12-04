@@ -13,7 +13,6 @@ module Api
     def update
       @post = Post.find(params[:id])
       @post.all_tags = params[:all_tags]
-      #@post.locations = params[:location_data]
 
       if @post.update(post_params)
         render :show
@@ -24,20 +23,20 @@ module Api
 
     def create
       @post = Post.new(post_params)
-      @post.all_tags = params[:all_tags];
-      location = Location.where({
-        address: location_params[:address]
-        }).first
-      if location
-        @post.location_id = location.id
-      else
-        location = Location.new(location_params)
-        if location.save
-          @post.location_id = location.id
-        else
-          render :json => @post.errors.full_messages, :status => 422
-        end
-      end
+      @post.all_tags = params[:all_tags]
+      @post.set_location = location_params
+
+
+      # if location
+      #   @post.location_id = location.id
+      # else
+      #   location = Location.new(location_params)
+      #   if location.save
+      #     @post.location_id = location.id
+      #   else
+      #     render :json => @post.errors.full_messages, :status => 422
+      #   end
+      # end
 
       if @post.save
         render :index

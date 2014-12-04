@@ -62,7 +62,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   },
 
   addLocationTaggerToNav: function(){
-    debugger
     this.locaterView = new StrickLife.Views.MapSelectionView({
       postLocation: this.model.get("location")
     });

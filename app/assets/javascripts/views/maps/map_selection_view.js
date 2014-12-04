@@ -28,10 +28,8 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
 
   getAddress: function() {
     if (this.currentAddress !== undefined) {
-      console.log(this.currentAddress)
       return this.currentAddress
     } else if (StrickLife.currentAddress) {
-      console.log("StrickLife.current")
       return StrickLife.currentAddress
       this.postAddress = StrickLife.currentAddress
     } else {
@@ -41,7 +39,6 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
 
   insertCurrentLocation: function() {
     var address = this.getAddress()
-    console.log(address)
     setTimeout(function(){
       $("#current-location-view").html(address)
     }.bind(this),0)

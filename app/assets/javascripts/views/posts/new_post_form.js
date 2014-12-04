@@ -54,8 +54,20 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   },
 
   addDateTaggerToNav: function() {
+    re = /[?&]date=(.*)/
+    url = location.href
+    var postDate
+
+    if (re.test(url)) {
+      var matches = url.match(re)
+      postDate = matches[1]
+    } else {
+      postDate = this.model.get("post_date")
+    }
+    debugger
+
     this.daterView = new StrickLife.Views.DateSelectionView({
-      postDate: this.model.get("post_date")
+      postDate: postDate
     });
     StrickLife.navView.addSubview("#context-area", this.daterView)
     this.daterView.addDatePicker();

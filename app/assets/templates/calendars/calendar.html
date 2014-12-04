@@ -1,0 +1,18 @@
+<div id="full-clndr" class="clearfix">
+  <script type="text/template" id="calendar-template">
+    <div class="clndr-grid">
+      <div class="days-of-the-week clearfix row">
+        <% _.each(daysOfTheWeek, function(day) { %>
+          <div class="header-day col-xs-2"><%= day %></div>
+        <% }); %>
+      </div>
+      <div class="days clearfix row">
+        <% _.each(days, function(day) { %>
+          <div class="<%= day.classes %> cols-xs-2" id="<%= day.id %>">
+            <span class="day-number"><%= day.day %></span>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </script>
+</div>

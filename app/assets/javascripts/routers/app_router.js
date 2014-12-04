@@ -77,6 +77,7 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     });
 
     this._swapView(view)
+    view.initCal()
   },
 
 

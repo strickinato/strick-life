@@ -31,7 +31,6 @@ module Api
       end
 
       @post.location_id = loc[:id]
-      debugger
       # if location
       #   @post.location_id = location.id
       # else

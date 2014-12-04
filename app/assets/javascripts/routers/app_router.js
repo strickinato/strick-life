@@ -12,8 +12,10 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
   },
 
   index: function() {
+    var collection = new StrickLife.Collections.Posts();
+    collection.fetch()
     var view = new StrickLife.Views.PostsIndex({
-      collection: StrickLife.posts
+      collection: collection
     });
 
     this._swapView(view)

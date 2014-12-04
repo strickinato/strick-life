@@ -1,6 +1,6 @@
 StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   initialize: function(){
-    this.filterCollection = new StrickLife.Collections.Tags();
+    //this.filterCollection = new StrickLife.Collections.Tags();
     this.listenTo(this.collection, "sync", this.render);
   },
 
@@ -9,7 +9,6 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   className: "post-area",
 
   render: function(){
-
     this.inputMonthViews();
     var content = this.template({
       posts: this.collection
@@ -49,8 +48,11 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   },
 
   makeItSticky: function() {
+
     $(".sticky-month-header").stick_in_parent({
       offset_top: 50,
     });
+
+
   },
 });

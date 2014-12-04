@@ -13,6 +13,7 @@ module Api
     def update
       @post = Post.find(params[:id])
       @post.all_tags = params[:all_tags]
+      #@post.locations = params[:location_data]
 
       if @post.update(post_params)
         render :show

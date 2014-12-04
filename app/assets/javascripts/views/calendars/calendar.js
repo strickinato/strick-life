@@ -60,8 +60,15 @@ StrickLife.Views.Calendar = Backbone.View.extend({
 
   showDayPosts: function(e, target) {
     console.log(target)
-    //var posts = new StrickLife.Collections.Posts()
-    $("#modal-post-view").show();
+    var models = target.events.map(function(event){
+      return event.model
+    });
+    var posts = new StrickLife.Collections.Posts(models)
+    var postsView = new StrickLife.Views.PostsIndex({
+      collection: posts
+    });
+
+    $("#modal-post-view").html(postsView.render().$el).show();
     $(target.element).mousemove(function(move){
       $("#modal-post-view").show();
       $("#modal-post-view").css({

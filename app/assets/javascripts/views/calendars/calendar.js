@@ -44,13 +44,23 @@ StrickLife.Views.Calendar = Backbone.View.extend({
       clickEvents: {
         click: function(target) {
           calView.redirectToNewPost(target)
-          console.log(target);
         },
-        onMonthChange: function(month) {
-          console.log('you just went to ' + month.format('MMMM, YYYY'));
-        }
+      },
+      ready: function() {
+        var self = this;
+        $(this.element).on('mouseover', '.day', function(e) {
+          var target = self.buildTargetObject(e.currentTarget, true);
+          if ($(target.element).hasClass("event"))
+            calView.showDayPosts.call(self, e, target)
+        });
       },
     });
+  },
+
+  showDayPosts: function(e, target) {
+    console.log(this)
+    console.log(e);
+    console.log(target);
   },
 
   redirectToNewPost: function(target) {

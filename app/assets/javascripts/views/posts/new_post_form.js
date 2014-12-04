@@ -64,7 +64,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     } else {
       postDate = this.model.get("post_date")
     }
-    debugger
 
     this.daterView = new StrickLife.Views.DateSelectionView({
       postDate: postDate

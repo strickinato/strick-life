@@ -18,7 +18,7 @@ StrickLife.Views.PostMinView = Backbone.View.extend({
 
   template: JST["posts/post_min"],
 
-  className: "post-min",
+  className: "post-min clearfix",
 
   render: function(){
     this.text = this.shortenText()

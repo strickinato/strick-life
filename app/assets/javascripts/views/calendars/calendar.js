@@ -31,7 +31,7 @@ StrickLife.Views.Calendar = Backbone.View.extend({
       "</table>" +
       "</script>" +
       "</div>" +
-      "<div id='modal-post-view'><div>";
+      "<div id='modal-post-view' class='clearfix'><div>";
     return string
   },
 

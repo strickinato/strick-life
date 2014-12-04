@@ -410,3 +410,25 @@ textarea {
 }
 
 /* Strick Additions to Start Bootsrap */
+.col-xs-7 {
+  width: 14.285714286%;
+  float: left;
+}
+@media (min-width: 768px) {
+  .col-sm-7 {
+    width: 14.285714286%;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-7 {
+    width: 14.285714286%;
+    float: left;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-7 {
+    width: 14.285714286%;
+    float: left;
+  }
+}

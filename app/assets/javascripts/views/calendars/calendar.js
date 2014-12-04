@@ -4,7 +4,8 @@ StrickLife.Views.Calendar = Backbone.View.extend({
   },
 
   template: function() {
-    var string = "<script type='text/template' id='calendar-template'>" +
+    var string = "<div id='cal-container'>" +
+      "<script type='text/template' id='calendar-template'>" +
       "<div class='clndr-controls row'>" +
       "<div class='clndr-control-button col-xs-4'><span class='clndr-previous-button'>previous</span></div><div class='month col-xs-4'><%= month %> <%= year %></div><div class='clndr-control-button col-xs-4 rightalign'><span class='clndr-next-button'>next</span></div>" +
       "</div>" +
@@ -12,7 +13,7 @@ StrickLife.Views.Calendar = Backbone.View.extend({
       "<thead>" +
       "<tr class='header-days row'>" +
       "<% for(var i = 0; i < daysOfTheWeek.length; i++) { %>" +
-      "<td class='header-day col-xs-2'><%= daysOfTheWeek[i] %></td>" +
+      "<td class='header-day col-xs-7'><%= daysOfTheWeek[i] %></td>" +
       "<% } %>" +
       "</tr>" +
       "</thead>" +
@@ -21,20 +22,21 @@ StrickLife.Views.Calendar = Backbone.View.extend({
       "<tr class='row'>" +
       "<% for(var j = 0; j < 7; j++){ %>" +
       "<% var d = j + i * 7; %>" +
-      "<td class='<%= days[d].classes %> col-xs-2'><div class='day-contents'><%= days[d].day %>" +
+      "<td class='<%= days[d].classes %> col-xs-7'><div class='day-contents'><%= days[d].day %>" +
       "</div></td>" +
       "<% } %>" +
       "</tr>" +
       "<% } %>" +
       "</tbody>" +
-      "</table>";
-      "</script>";
+      "</table>" +
+      "</script>" +
+      "</div>";
     return string
   },
 
   initCal: function() {
     this.eventsArray = this.createPostDays();
-    StrickLife.cal = $('#main').clndr({
+    StrickLife.cal = $('#cal-container').clndr({
       template: $("#calendar-template").html(),
       events: this.eventsArray,
       clickEvents: {
@@ -49,7 +51,6 @@ StrickLife.Views.Calendar = Backbone.View.extend({
   },
 
   addEvents: function() {
-    debugger
     StrickLife.cal.setEvents(this.createPostDays());
   },
 

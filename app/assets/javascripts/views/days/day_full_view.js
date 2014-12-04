@@ -4,7 +4,7 @@ StrickLife.Views.DayFullView = Backbone.CompositeView.extend({
     this.month = options.month
     this.day = options.day
 
-    this.listenTo(this.collection, "sync", this.render);
+    //this.listenTo(this.collection, "sync", this.render);
   },
 
   template: JST["days/day_full"],

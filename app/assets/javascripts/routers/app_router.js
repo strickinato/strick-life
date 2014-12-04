@@ -44,7 +44,7 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
   },
 
   edit: function(id){
-    var post = StrickLife.posts.get(id);
+    var post = StrickLife.posts.getOrFetch(id);
     var tagsCollection = new StrickLife.Collections.Tags(post.tags().models);
     var view = new StrickLife.Views.PostsForm({
       model: post,
@@ -70,6 +70,8 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
 
 
   _swapView: function(view) {
+    StrickLife.navView && StrickLife.navView.remove()
+
     var nav = $("#contextual-navbar")
     StrickLife.navView = new StrickLife.Views.ContextNavBar({
       $el: nav

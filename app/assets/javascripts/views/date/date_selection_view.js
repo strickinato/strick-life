@@ -42,9 +42,6 @@ StrickLife.Views.DateSelectionView = Backbone.View.extend({
       altFormat: "yy-mm-dd",
       altField: "#nav-date-actual-date",
       defaultDate: 0,
-      onSelect: function(){
-        alert("yo");
-      }
     })
   }
 

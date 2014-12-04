@@ -32,4 +32,22 @@ StrickLife.Collections.Posts = Backbone.Collection.extend({
     return postHash
   },
 
+  getOrFetch: function(id) {
+    var posts = StrickLife.posts
+    var post = this.get(id)
+
+    if(post) {
+      post.fetch();
+    } else {
+      post = new StrickLife.Models.Post({id: id})
+      post.fetch({
+        success: function() {
+          posts.add(post);
+        }
+      });
+    }
+
+    return post
+  }
+
 });

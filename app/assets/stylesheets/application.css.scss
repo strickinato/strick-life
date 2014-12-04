@@ -81,7 +81,7 @@ html, body{
 }
 
 .post-min {
-  height: 80px;
+  height: 60px;
   width: 100%;
   border-bottom: dotted 1px #EEE;
   position: relative;
@@ -94,9 +94,12 @@ html, body{
 }
 
 .post-min-tags {
-  position: absolute;
-  bottom: 0px;
-  left: 5px
+  font-size: 12px;
+  bottom: 5px;
+  line-height: 12px;
+}
+.post-min-tags ul{
+  padding: 0px;
 }
 
 .post-min-tags li {
@@ -106,7 +109,14 @@ html, body{
   background-color: #428bca;
   border-radius: 5px;
   padding: 2px 3px;
-  margin-right: 5px;
+  margin-right: 3px;
+  float:left;
+
+}
+.post-min-tags a {
+  font-size: 12px;
+  color: #428bca;
+  float:left;
 }
 
 .post-min-tags li:hover {

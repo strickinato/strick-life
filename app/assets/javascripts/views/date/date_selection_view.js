@@ -11,9 +11,7 @@ StrickLife.Views.DateSelectionView = Backbone.View.extend({
     var date = (!!this.postDate) ? new Date(this.postDate + "PST") : new Date()
     var today = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear()
     var actualToday = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate()
-debugger
     var content = this.template({
-      //post: this.model,
       defaultDate: today,
       actualDefaultDate: actualToday
     });

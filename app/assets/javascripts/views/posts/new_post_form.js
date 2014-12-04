@@ -45,39 +45,40 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   //   }).load();
   // },
   addTagTaggerToNav: function() {
-    var view = new StrickLife.Views.TagsIndexForm({
+    this.taggerView = new StrickLife.Views.TagsIndexForm({
       postTagCollection: this.postTagCollection,
       collection: StrickLife.tags
     });
-    StrickLife.navView.addSubview("#context-area", view)
-    view.addTypeAhead();
+    StrickLife.navView.addSubview("#context-area", this.taggerView)
+    this.taggerView.addTypeAhead();
   },
 
   addDateTaggerToNav: function() {
-    var view = new StrickLife.Views.DateSelectionView({
+    this.daterView = new StrickLife.Views.DateSelectionView({
       postDate: this.model.get("post_date")
     });
-    StrickLife.navView.addSubview("#context-area", view)
-    view.addDatePicker();
+    StrickLife.navView.addSubview("#context-area", this.daterView)
+    this.daterView.addDatePicker();
   },
 
   addLocationTaggerToNav: function(){
-    var view = new StrickLife.Views.MapSelectionView();
-    StrickLife.navView.addSubview("#context-area", view)
-    view.createAutocomplete();
+    this.locationTaggerView = new StrickLife.Views.MapSelectionView({
+      postLocation: this.model.get("location_id")
+    });
+    StrickLife.navView.addSubview("#context-area", this.locationTaggerView)
+    this.locationTaggerView.createAutocomplete();
   },
 
   addSubmitButtonToNav: function(){
-    var view = new StrickLife.Views.SubmitButtonView({
+    this.buttonSubmitView = new StrickLife.Views.SubmitButtonView({
       form: this
     });
-    StrickLife.navView.addSubview("#context-area", view);
+    StrickLife.navView.addSubview("#context-area", this.buttonSubmitView);
   },
 
   tagName: "form",
 
   createPost: function() {
-    //event.preventDefault();
     var formData = this.$el.serializeJSON();
     formData = this.getUserData(formData);
     formData = this.getLocationData(formData);

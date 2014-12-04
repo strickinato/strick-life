@@ -1,6 +1,5 @@
 StrickLife.Views.MapSelectionView = Backbone.View.extend({
   initialize: function() {
-    debugger
   },
 
   template: JST["maps/map_selection"],

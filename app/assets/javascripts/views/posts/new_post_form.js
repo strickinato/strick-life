@@ -13,17 +13,14 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   template: JST["posts/form"],
 
   render: function(){
+    console.log(this.model)
     var content = this.template({
       post: this.model,
     });
     this.$el.html(content)
 
-    if(StrickLife.navView.subviews("#context-area").length > 0){
-      _.each(StrickLife.navView.subviews()["#context-area"], function(subview){
-        subview.remove()
-        })
-    }
 
+    this.removeOldNavSubviews();
 
     this.addSubmitButtonToNav();
     this.addDateTaggerToNav();
@@ -31,6 +28,14 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     this.addTagTaggerToNav();
 
     return this;
+  },
+
+  removeOldNavSubviews: function() {
+    if(StrickLife.navView.subviews("#context-area").length > 0){
+      _.each(StrickLife.navView.subviews()["#context-area"], function(subview){
+        subview.remove()
+      })
+    }
   },
 
 //#MARKDOWN

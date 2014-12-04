@@ -23,13 +23,15 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
 
   events: {
     "click #map-selection-icon" : "togglePopover",
-    "locationLoad #current-location-view": "insertCurrentLocation"
+    "locationLoad #current-location-view": "setLocationData",
+    "placesPicked #current-location-view": "insertCurrentLocation"
   },
 
   getAddress: function() {
     if (this.currentAddress !== undefined) {
       return this.currentAddress
     } else if (StrickLife.currentAddress) {
+      this.setLocationData()
       return StrickLife.currentAddress
       this.postAddress = StrickLife.currentAddress
     } else {
@@ -58,12 +60,20 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
     }
   },
 
+  setLocationData: function(){
+    this.currentLat = StrickLife.currentCoords.lat();
+    this.currentLng = StrickLife.currentCoords.lng();
+    this.currentAddress = StrickLife.currentAddress;
+    this.currentPlaceId = StrickLife.currentPlaceId;
+    this.insertCurrentLocation();
+  },
+
   getLocationData: function(formData){
     formData.post.location_data = {};
-    formData.post.location_data.latitude = this.currentCoords.lat()
-    formData.post.location_data.longitude = this.currentCoords.lng()
-    formData.post.location_data.address = this.currentAddress
-    formData.post.location_data.place_id = this.currentPlaceId
+    formData.post.location_data.latitude = this.currentLat;
+    formData.post.location_data.longitude = this.currentLng;
+    formData.post.location_data.address = this.currentAddress;
+    formData.post.location_data.place_id = this.currentPlaceId;
 
     return formData;
   },
@@ -78,8 +88,7 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
       view.currentAddress = place.formatted_address;
       view.currentCoords = place.geometry.location;
       view.currentPlaceId = place.place_id;
-      console.log(place)
-      $("#current-location-view").trigger("locationLoad")
+      $("#current-location-view").trigger("placesPicked")
     });
   },
 

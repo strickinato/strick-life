@@ -1,6 +1,6 @@
 StrickLife.Views.Calendar = Backbone.View.extend({
   initialize: function(options) {
-    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.collection, "sync", this.addEvents)
   },
 
   template: function() {
@@ -34,7 +34,7 @@ StrickLife.Views.Calendar = Backbone.View.extend({
 
   initCal: function() {
     this.eventsArray = this.createPostDays();
-    $('#main').clndr({
+    StrickLife.cal = $('#main').clndr({
       template: $("#calendar-template").html(),
       events: this.eventsArray,
       clickEvents: {
@@ -46,6 +46,11 @@ StrickLife.Views.Calendar = Backbone.View.extend({
         }
       },
     });
+  },
+
+  addEvents: function() {
+    debugger
+    StrickLife.cal.setEvents(this.createPostDays());
   },
 
   createPostDays: function() {
@@ -68,6 +73,5 @@ StrickLife.Views.Calendar = Backbone.View.extend({
     this.$el.html(content)
 
     return this;
-
   },
 });

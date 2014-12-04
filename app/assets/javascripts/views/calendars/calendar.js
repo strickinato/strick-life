@@ -30,7 +30,8 @@ StrickLife.Views.Calendar = Backbone.View.extend({
       "</tbody>" +
       "</table>" +
       "</script>" +
-      "</div>";
+      "</div>" +
+      "<div id='modal-post-view'><div>";
     return string
   },
 
@@ -58,9 +59,19 @@ StrickLife.Views.Calendar = Backbone.View.extend({
   },
 
   showDayPosts: function(e, target) {
-    console.log(this)
-    console.log(e);
-    console.log(target);
+    console.log(target)
+    var posts = new StrickLife.Collections.Posts()
+    $("#modal-post-view").show();
+    $(target.element).mousemove(function(move){
+      $("#modal-post-view").show();
+      $("#modal-post-view").css({
+        top: (move.pageY + 50) + "px",
+        left: (move.pageX + 0) + "px"
+      });
+    });
+    $(target.element).mouseout(function(event){
+      $("#modal-post-view").hide();
+    });
   },
 
   redirectToNewPost: function(target) {

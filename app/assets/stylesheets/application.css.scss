@@ -201,6 +201,7 @@ html, body{
   vertical-align: top;
   border: solid 1px #EEE;
   border-radius: 10px;
+  display: block;
 }
 .day:hover:not(.event .today){
   background-color: #FFF;
@@ -214,10 +215,13 @@ html, body{
   background-color: red;
 }
 
-.cal-style-plus {
-  position: relative;
-  top: 50%;
-  left: 50%;
+#modal-post-view {
+  display:none;
+  background-color: red;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  z-index: 1000000;
 }
 
 

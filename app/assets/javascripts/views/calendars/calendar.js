@@ -59,7 +59,6 @@ StrickLife.Views.Calendar = Backbone.View.extend({
   },
 
   showDayPosts: function(e, target) {
-    console.log(target)
     var models = target.events.map(function(event){
       return event.model
     });
@@ -83,7 +82,6 @@ StrickLife.Views.Calendar = Backbone.View.extend({
 
   redirectToNewPost: function(target) {
     var queryString = "?date=" + target.date._i
-    console.log(queryString)
     Backbone.history.navigate("/posts/new" + queryString, {trigger: true})
   },
 

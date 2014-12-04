@@ -203,7 +203,8 @@ html, body{
   border-radius: 10px;
   display: block;
 }
-.day:hover:not(.event .today){
+
+.day:hover:not(.event):not(.today){
   background-color: #FFF;
 }
 
@@ -219,7 +220,7 @@ html, body{
 
 #modal-post-view {
   display:none;
-  background-color: #F4F9FF;
+  background-color: #FFF;
   position: absolute;
   z-index: 1000000;
   padding-left: 20px;
@@ -228,6 +229,7 @@ html, body{
   font-size: 12px;
   .month-header, .day-min-date, .post-min-tags { display: none; }
   .post-min {
+    background-color: #FFF;
     font-size: 12px;
     height: 20px;
   }

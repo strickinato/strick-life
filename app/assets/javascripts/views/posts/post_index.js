@@ -1,10 +1,26 @@
 StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
-  initialize: function(){
+  initialize: function(options){
+    this.source = options.source;
     //this.filterCollection = new StrickLife.Collections.Tags();
     this.listenTo(this.collection, "sync", this.render);
   },
 
-  template: JST["posts/index"],
+  template: function() {
+    switch (this.source) {
+    case undefined:
+      return JST["posts/index"];
+      break;
+    case "home":
+      return JST["posts/index"];
+      break;
+    case "cal-modal":
+      return JST["posts/modal_index"];
+      break;
+    case "maps-modal":
+      return JST["posts/maps_index"];
+      break;
+    }
+  },
 
   className: "post-area",
 

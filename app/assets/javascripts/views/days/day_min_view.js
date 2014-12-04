@@ -31,7 +31,7 @@ StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
   },
   goToTag: function(event){
     event.stopImmediatePropagation();
-    var linkString = "tag/" + $(event.target).html();
+    var linkString = "tag/" + $(event.target).data('id');
     Backbone.history.navigate(linkString, {trigger: true})
   },
 

@@ -228,6 +228,7 @@ html, body{
 
 #modal-post-view {
   display:none;
+  min-width: 300px;
   background-color: #FFF;
   position: absolute;
   z-index: 1000000;
@@ -294,12 +295,20 @@ textarea {
   position: absolute;
   top: 100%;
   right: 20px;
-  width: 400px;
+  width: 450px;
   background-color: #eee;
   border: solid 1px #ddd;
   border-top: none;
   border-radius: 5px;
   border-bottom-right-radius: none;
+}
+
+.nav-option-view {
+  min-height: 30px;
+  color: #428bca;
+}
+.nav-option-view li {
+  list-style: none;
 }
 
 .pac-container {

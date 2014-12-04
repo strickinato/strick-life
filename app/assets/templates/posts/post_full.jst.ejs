@@ -1,4 +1,15 @@
-<ul class="post-options">
-  <li><a href="#posts/<%= post_id %>/edit">Edit</a></li>
-<ul>
-<p class="full-post-body"><%= text %></p>
+<div class="full-post-body">
+  <%= post.escape('body') %>
+</div>
+<div class="full-post-options">
+  <ul>
+    <li><a href="#posts/<%= post.get('id') %>/edit">Edit</a></li>
+  </ul>
+</div>
+<div class="post-full-tags">
+  <ul>
+    <% post.tags().each(function(tag){ %>
+    <li class="tag-name" data-id="<%= tag.get('id') %>"><%= tag.escape('name') %></li>
+    <% }); %>
+  </ul>
+</div>

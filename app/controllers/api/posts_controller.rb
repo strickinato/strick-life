@@ -24,9 +24,14 @@ module Api
     def create
       @post = Post.new(post_params)
       @post.all_tags = params[:all_tags]
-      @post.set_location = location_params
+      loc = Location.where(address: location_params[:address]).first_or_create do |location|
+        location.place_id = location_params[:place_id]
+        location.latitude = location_params[:latitude]
+        location.longitude = location_params[:longitude]
+      end
 
-
+      @post.location_id = loc[:id]
+      debugger
       # if location
       #   @post.location_id = location.id
       # else

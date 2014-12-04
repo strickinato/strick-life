@@ -28,10 +28,11 @@ class Post < ActiveRecord::Base
   end
 
   def set_location=(params)
-    Location.where(address: params[:address]).first_or_create! do |location|
+    a = Location.where(address: params[:address]).first_or_create do |location|
       location.place_id = params[:place_id]
       location.latitude = params[:latitude]
       location.longitude = params[:longitude]
     end
+    a
   end
 end

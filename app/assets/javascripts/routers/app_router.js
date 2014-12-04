@@ -72,7 +72,8 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
   },
 
   calendar: function() {
-    var view = new StrickLife.Views.MapView({
+    var view = new StrickLife.Views.Calendar({
+      collection: StrickLife.posts
     });
 
     this._swapView(view)

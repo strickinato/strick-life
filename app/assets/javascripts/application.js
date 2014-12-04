@@ -22,6 +22,8 @@
 //= require underscore
 //= require backbone
 //= require typeahead
+//= require clndr
+//= require moment
 //= require strick_life
 //= require_tree ../templates
 //= require_tree ./models

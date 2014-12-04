@@ -62,11 +62,12 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   },
 
   addLocationTaggerToNav: function(){
-    this.locationTaggerView = new StrickLife.Views.MapSelectionView({
-      postLocation: this.model.get("location_id")
+    debugger
+    this.locaterView = new StrickLife.Views.MapSelectionView({
+      postLocation: this.model.get("location")
     });
-    StrickLife.navView.addSubview("#context-area", this.locationTaggerView)
-    this.locationTaggerView.createAutocomplete();
+    StrickLife.navView.addSubview("#context-area", this.locaterView)
+    this.locaterView.createAutocomplete();
   },
 
   addSubmitButtonToNav: function(){
@@ -81,7 +82,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   createPost: function() {
     var formData = this.$el.serializeJSON();
     formData = this.getUserData(formData);
-    formData = this.getLocationData(formData);
+    formData = this.locaterView.getLocationData(formData);
     formData = this.getDateData(formData);
     formData = this.getTagData(formData);
 

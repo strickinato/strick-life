@@ -36,11 +36,14 @@ StrickLife.Views.Calendar = Backbone.View.extend({
 
   initCal: function() {
     this.eventsArray = this.createPostDays();
+
+    var calView = this;
     StrickLife.cal = $('#cal-container').clndr({
       template: $("#calendar-template").html(),
       events: this.eventsArray,
       clickEvents: {
         click: function(target) {
+          calView.redirectToNewPost(target)
           console.log(target);
         },
         onMonthChange: function(month) {
@@ -48,6 +51,12 @@ StrickLife.Views.Calendar = Backbone.View.extend({
         }
       },
     });
+  },
+
+  redirectToNewPost: function(target) {
+    var queryString = "?date=" + target.date._i
+    console.log(queryString)
+    Backbone.history.navigate("/posts/new" + queryString, {trigger: true})
   },
 
   addEvents: function() {

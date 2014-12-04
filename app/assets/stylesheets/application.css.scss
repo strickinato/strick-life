@@ -202,15 +202,23 @@ html, body{
   border: solid 1px #EEE;
   border-radius: 10px;
 }
-.day:hover:not(.event){
+.day:hover:not(.event .today){
   background-color: #FFF;
 }
 
 .day.event {
+  background-color: #428bca;
+}
+
+.day.today {
   background-color: red;
 }
 
-
+.cal-style-plus {
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
 
 
 /* FORM */

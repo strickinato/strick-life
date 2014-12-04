@@ -8,7 +8,8 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     "posts/new": "new",
     "date/:year/:month/:day" : "singleDay",
     "posts/:id/edit" : "edit",
-    "map":"map"
+    "map":"map",
+    "calendar": "calendar"
   },
 
   index: function() {
@@ -68,6 +69,13 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
     google.maps.event.trigger(view.map, 'resize');
     view.map.setCenter( view.lastCenter );
 
+  },
+
+  calendar: function() {
+    var view = new StrickLife.Views.MapView({
+    });
+
+    this._swapView(view)
   },
 
 

@@ -18,6 +18,13 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     });
     this.$el.html(content)
 
+    if(StrickLife.navView.subviews("#context-area").length > 0){
+      _.each(StrickLife.navView.subviews()["#context-area"], function(subview){
+        subview.remove()
+        })
+    }
+
+
     this.addSubmitButtonToNav();
     this.addDateTaggerToNav();
     this.addLocationTaggerToNav();

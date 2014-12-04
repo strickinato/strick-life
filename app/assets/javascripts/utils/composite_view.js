@@ -33,6 +33,7 @@ Backbone.CompositeView = Backbone.View.extend({
   },
 
   removeSubview: function (selector, subview) {
+    debugger
     subview.remove();
 
     var subviews = this.subviews(selector);

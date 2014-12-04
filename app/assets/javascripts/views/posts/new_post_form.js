@@ -13,7 +13,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   template: JST["posts/form"],
 
   render: function(){
-    console.log(this.model)
     var content = this.template({
       post: this.model,
     });
@@ -55,7 +54,9 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   },
 
   addDateTaggerToNav: function() {
-    var view = new StrickLife.Views.DateSelectionView();
+    var view = new StrickLife.Views.DateSelectionView({
+      postDate: this.model.get("post_date")
+    });
     StrickLife.navView.addSubview("#context-area", view)
     view.addDatePicker();
   },

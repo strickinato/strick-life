@@ -234,6 +234,11 @@ html, body{
   background-color: red;
 }
 
+.day.last-month, .day.next-month {
+  background-color: white;
+  color: #DDD;
+}
+
 /* CALENDAR MODAL */
 
 #modal-post-view {

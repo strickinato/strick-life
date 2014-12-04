@@ -3,6 +3,10 @@ StrickLife.Views.PostMinView = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render)
   },
 
+  events: {
+    "click .post-min-tags li": "goToTag();"
+  },
+
   shortenText: function(){
     if( this.model.get("body").length > 160 ) {
       return this.model.escape("body").slice(0,160) + "..."
@@ -10,6 +14,7 @@ StrickLife.Views.PostMinView = Backbone.View.extend({
       return this.model.escape("body");
     }
   },
+
 
   template: JST["posts/post_min"],
 
@@ -24,5 +29,9 @@ StrickLife.Views.PostMinView = Backbone.View.extend({
     this.$el.html(content)
 
     return this;
+  },
+
+  goToTag: function(){
+    alert('hi')
   },
 });

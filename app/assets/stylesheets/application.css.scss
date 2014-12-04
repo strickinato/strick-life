@@ -109,6 +109,12 @@ html, body{
   margin-right: 5px;
 }
 
+.post-min-tags li:hover {
+  background-color: blue;
+  cursor: pointer;
+
+}
+
 .post-full{
   border-bottom: solid 1px #DDD;
 }

@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  validates :user_id, :location_id, :post_date, :body, presence: true
 
   has_many(
     :taggings,

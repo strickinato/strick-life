@@ -24,6 +24,7 @@
 //= require typeahead
 //= require moment
 //= require clndr
+//= require filepicker
 //= require strick_life
 //= require_tree ../templates
 //= require_tree ./models

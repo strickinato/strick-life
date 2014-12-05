@@ -124,9 +124,20 @@ html, body{
   cursor: pointer;
 }
 
+.post-options li{
+  display: inline;
+  list-style-type: none;
+  float: right;
+}
+
+/*Full Day View */
 .post-full{
   border-bottom: solid 1px #DDD;
   padding-left: 15px;
+  min-height: 200px;
+  position: relative;
+  background-position: right;
+  background-repeat: no-repeat;
 }
 
 .full-post-options {
@@ -134,13 +145,12 @@ html, body{
   margin-right: 20px;
 }
 
-
-/*Full Day View */
-.post-options li{
-  display: inline;
-  list-style-type: none;
-  float: right;
+.full-post-items {
+  position: absolute;
+  bottom: 0px;
+  width: 100%
 }
+
 
 /*MAP*/
 

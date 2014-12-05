@@ -7,12 +7,14 @@
 <div class="full-post-body">
   <%= post.escape('body') %>
 </div>
-<div class="post-tags">
-  <ul>
-    <% post.tags().each(function(tag){ %>
-    <li class="tag-name" data-id="<%= tag.get('id') %>"><%= tag.escape('name') %></li>
-    <% }); %>
-  </ul>
+<div class="full-post-items">
+  <div class="post-tags">
+    <ul>
+      <% post.tags().each(function(tag){ %>
+      <li class="tag-name" data-id="<%= tag.get('id') %>"><%= tag.escape('name') %></li>
+      <% }); %>
+    </ul>
+  </div>
+  <a href="#/map"><%= post.location().escape("address") %><a>
 </div>
-<a href="#/map"><%= post.location().escape("address") %><a>
 <img class="full-post-photo" src="<%= post.escape("picture_url") %>" style="display: none">

@@ -5,17 +5,21 @@ StrickLife.Views.PostFullView = Backbone.View.extend({
 
   template: JST["posts/post_full"],
 
-  className: "post-full",
+  className: "post-full clearfix",
 
   events: {
-
+    "click" : "togglePhoto"
   },
 
-  displayPhoto: function() {
-    $("img").slideDown()
-  },
-  hidePhoto: function() {
-    $("img").slideUp()
+  togglePhoto: function() {
+    if (!this._photo) {
+      this.$el.css("background-image", "url(" + this.model.get("picture_url") + ")")
+      this._photo = true;
+    } else {
+      this.$el.css("background-image", "url('http://icons.iconarchive.com/icons/designcontest/outline/256/Camera-icon.png')")
+      this._photo = false;
+    }
+
   },
 
   render: function(){
@@ -23,7 +27,7 @@ StrickLife.Views.PostFullView = Backbone.View.extend({
       post: this.model
     });
     if(this.model.get("picture_url")) {
-      this.$el.css("background-image", "url(" + this.model.get("picture_url") + ")")
+      this.$el.css("background-image", "url('http://icons.iconarchive.com/icons/designcontest/outline/256/Camera-icon.png')")
     }
     this.$el.html(content)
 

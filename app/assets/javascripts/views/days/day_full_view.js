@@ -4,9 +4,11 @@ StrickLife.Views.DayFullView = Backbone.CompositeView.extend({
     this.month = options.month
     this.day = options.day
     this.date = this.year +"-"+ this.month +"-"+ this.day
+    this.collection.fetch();
 
     this.listenTo(StrickLife.posts, "sync", this.render);
     this.listenTo(StrickLife.posts, "add", this.addPost);
+    //this.listenTo(this.collection, "sync", this.render);
 
     this.collection.each(function(post){
       this.addPost(post)

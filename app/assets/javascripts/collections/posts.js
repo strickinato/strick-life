@@ -12,9 +12,9 @@ StrickLife.Collections.Posts = Backbone.Collection.extend({
     var mainCollection = this;
     _(this.models).each(function(post) {
       var currentDay = post.get("post_date")
-      var year = post.get("post_date").slice(0, 4);
-      var month = post.get("post_date").slice(5, 7);
-      var day = post.get("post_date").slice(8, 10);
+      var year = parseInt(post.get("post_date").slice(0, 4));
+      var month = parseInt(post.get("post_date").slice(5, 7));
+      var day = parseInt(post.get("post_date").slice(8, 10));
 
 
       if (postHash[year] === undefined) {

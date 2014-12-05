@@ -27,7 +27,11 @@ StrickLife.Views.DayMinView = Backbone.CompositeView.extend({
   },
 
   goToDay: function(event){
-    var linkString = "date/" + this.year + "/" + this.month +"/"+ this.day
+    var linkString = "date/" +
+    this.year + "/" +
+    (0 + this.month).slice(-2) + "/" +
+    (0 + this.day).slice(-2)
+    
     Backbone.history.navigate(linkString, {trigger: true})
   },
 

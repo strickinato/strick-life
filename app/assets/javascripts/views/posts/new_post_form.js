@@ -88,7 +88,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     formData = this.locaterView.getLocationData(formData);
     formData = this.getDateData(formData);
     formData = this.getTagData(formData);
-    formData - this.getPictureData(formData);
+    formData = this.getPictureData(formData);
 
     var formView = this;
 

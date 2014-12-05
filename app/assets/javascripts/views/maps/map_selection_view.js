@@ -26,6 +26,7 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
   },
 
   getAddress: function() {
+    debugger
     if (this.currentAddress !== undefined) {
       return this.currentAddress
     } else if (StrickLife.currentAddress) {

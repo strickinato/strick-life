@@ -26,7 +26,6 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
   },
 
   getAddress: function() {
-    debugger
     if (this.currentAddress !== undefined) {
       return this.currentAddress
     } else if (StrickLife.currentAddress) {
@@ -60,19 +59,13 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
   },
 
   setLocationData: function(){
-    this.currentLat = StrickLife.currentCoords.lat();
-    this.currentLng = StrickLife.currentCoords.lng();
     this.currentAddress = StrickLife.currentAddress;
-    this.currentPlaceId = StrickLife.currentPlaceId;
     this.insertCurrentLocation();
   },
 
   getLocationData: function(formData){
     formData.post.location_data = {};
-    formData.post.location_data.latitude = this.currentLat;
-    formData.post.location_data.longitude = this.currentLng;
     formData.post.location_data.address = this.currentAddress;
-    formData.post.location_data.place_id = this.currentPlaceId;
 
     return formData;
   },
@@ -85,8 +78,6 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
     google.maps.event.addListener(autocomplete, 'place_changed', function(location) {
       var place = autocomplete.getPlace();
       view.currentAddress = place.formatted_address;
-      view.currentCoords = place.geometry.location;
-      view.currentPlaceId = place.place_id;
       $("#current-location-view").trigger("placesPicked")
     });
   },

@@ -29,7 +29,6 @@ StrickLife.Views.DayFullView = Backbone.CompositeView.extend({
   },
 
   addPost: function(model){
-      debugger
     if(model.get("post_date") === this.date) {
       var postView = new StrickLife.Views.PostFullView({
         model: model

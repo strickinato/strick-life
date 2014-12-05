@@ -25,9 +25,8 @@ module Api
       @post = Post.new(post_params)
       @post.all_tags = params[:all_tags]
       loc = Location.where(address: location_params[:address]).first_or_create do |location|
-        location.place_id = location_params[:place_id]
-        location.latitude = location_params[:latitude]
-        location.longitude = location_params[:longitude]
+        location.latitude = Geocoder.coordinates(location_params[:address])[0]
+        location.longitude = Geocoder.coordinates(location_params[:address])[1]
       end
 
       @post.location_id = loc[:id]

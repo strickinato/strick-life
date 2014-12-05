@@ -518,13 +518,19 @@ textarea {
   background-color: white;
   border-radius: 10px;
   width: 50%;
-  margin: 200px auto;
+  margin: 100px auto;
 }
 
 .form-container button {
   display: inline-block;
 }
 
+#welcome-text {
+  margin: 100px auto;
+  width: 50%;
+  text-align: center;
+  font-size: 18px;
+}
+
 #session-splash {
-  background-image: url(http://www.mortylefkoe.com/wp-content/uploads/bigstock-Journal-050713.jpg)
 }

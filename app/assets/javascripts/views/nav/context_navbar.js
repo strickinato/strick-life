@@ -5,7 +5,6 @@ StrickLife.Views.ContextNavBar = Backbone.CompositeView.extend({
   },
 
   logout: function(){
-    alert('b')
     $.ajax({
       url: window.location.href.split('#')[0] + "session",
       type: "POST",

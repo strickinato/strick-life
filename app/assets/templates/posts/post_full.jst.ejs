@@ -1,16 +1,17 @@
-<div class="full-post-body">
-  <%= post.escape('body') %>
-</div>
 <div class="full-post-options">
   <ul>
     <li><a href="#posts/<%= post.get('id') %>/edit">Edit</a></li>
+    <li><a href="javascript:void(0)" onclick='alert("No deleting!")'>Delete</a></li>
   </ul>
 </div>
-<div class="post-full-tags">
+<div class="full-post-body">
+  <%= post.escape('body') %>
+</div>
+<div class="post-tags">
   <ul>
     <% post.tags().each(function(tag){ %>
     <li class="tag-name" data-id="<%= tag.get('id') %>"><%= tag.escape('name') %></li>
     <% }); %>
   </ul>
 </div>
-<a href="javascript:void(0)"><%= post.location().escape("address") %><a>
+<a href="#/map"><%= post.location().escape("address") %><a>

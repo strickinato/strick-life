@@ -1,6 +1,6 @@
 <div class="post-min-content"><%= text %></div>
 
-<div class="post-min-tags">
+<div class="post-tags">
   <ul>
     <% post.tags().each(function(tag){ %>
     <li class="tag-name" data-id="<%= tag.get('id') %>"><%= tag.escape('name') %></li>

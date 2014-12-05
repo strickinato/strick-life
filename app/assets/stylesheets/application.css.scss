@@ -93,16 +93,16 @@ html, body{
   background-color: fuchsia;
 }
 
-.post-min-tags {
+.post-tags {
   font-size: 12px;
   bottom: 5px;
   line-height: 12px;
 }
-.post-min-tags ul{
+.post-tags ul{
   padding: 0px;
 }
 
-.post-min-tags li {
+.post-tags li {
   display: inline;
   list-style-type: none;
   color: white;
@@ -113,25 +113,30 @@ html, body{
   float:left;
 
 }
-.post-min-tags a {
+.post-tags a {
   font-size: 12px;
   color: #428bca;
   float:left;
 }
 
-.post-min-tags li:hover {
+.post-tags li:hover {
   background-color: blue;
   cursor: pointer;
-
 }
 
 .post-full{
   border-bottom: solid 1px #DDD;
+  padding-left: 15px;
+}
+
+.full-post-options {
+  float: right;
+  margin-right: 20px;
 }
 
 
 /*Full Day View */
-.post-options{
+.post-options li{
   display: inline;
   list-style-type: none;
   float: right;

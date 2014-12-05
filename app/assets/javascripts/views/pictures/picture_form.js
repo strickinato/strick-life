@@ -1,8 +1,4 @@
 StrickLife.Views.PictureSelectionView = Backbone.View.extend({
-  initialize: function(options) {
-
-  },
-
   template: JST["pictures/picture_selection"],
 
   render: function(){

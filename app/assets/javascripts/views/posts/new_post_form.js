@@ -10,6 +10,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
   },
   className: "posts-form",
+
   template: JST["posts/form"],
 
   render: function(){
@@ -19,8 +20,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     this.$el.html(content)
 
 
-    // StrickLife.navView.removeOldNavSubviews();
-
+    StrickLife.navView.removeOldNavSubviews();
     this.addSubmitButtonToNav();
     this.addDateTaggerToNav();
     this.addLocationTaggerToNav();

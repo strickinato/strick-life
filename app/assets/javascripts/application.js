@@ -18,7 +18,6 @@
 //= require bootstrap
 //= require 'epiceditor'
 //= require marker_clusterer
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require typeahead

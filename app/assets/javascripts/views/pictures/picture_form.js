@@ -5,7 +5,7 @@ StrickLife.Views.PictureSelectionView = Backbone.View.extend({
     var content = this.template();
     this.insertCurrentPicture()
     this.$el.html(content);
-
+    filepicker.constructWidget(this.$("#picture-widget")[0])
     return this;
   },
 

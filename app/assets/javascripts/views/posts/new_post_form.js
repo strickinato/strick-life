@@ -93,6 +93,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     formData = this.locaterView.getLocationData(formData);
     formData = this.getDateData(formData);
     formData = this.getTagData(formData);
+    formData - this.getPictureData(formData);
 
     var formView = this;
 
@@ -132,6 +133,12 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     formData.post.location_data.place_id = StrickLife.currentPlaceId
 
     return formData;
+  },
+
+  getPictureData: function(formData) {
+    formData.post.picture_url = this.pictureFormView.pictureUrl
+    debugger
+    return formData
   },
 
   getDateData: function(formData){

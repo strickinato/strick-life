@@ -33,15 +33,9 @@ StrickLife.Views.PictureSelectionView = Backbone.View.extend({
     }
   },
 
-
-  getPictureData: function(formData){
-    formData.post.picture_url = this.imageUrl ? this.imageUrl : "";
-    return formData;
-  },
-
   getImage: function() {
-    this.imageUrl = event.fpfile.url
-    var string = "<img src='" + this.imageUrl +"'>"
+    this.pictureUrl = event.fpfile.url
+    var string = "<img src='" + this.pictureUrl +"'>"
     $("#current-picture-view").html(string);
   },
 

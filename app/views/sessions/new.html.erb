@@ -21,5 +21,21 @@
       <input type="Submit" value="Sign In" class="btn btn-primary">
     </form>
       <%= button_to "Sign Up", new_user_url, class: 'btn btn-primary' %>
+      <button id="guest-btn" class="btn btn-primary">Guest Login</button>
     </div>
 </div>
+
+<script type="text/javascript">
+  $("#guest-btn").on("click", function() {
+    var email = "amazingperson@loveandhugs.com"
+    var password = "guestpassword123"
+    for(var i = 0; i <= email.length; i++) {
+      var partial = email.slice(0, i);
+      var num = 20 * i;
+      window.setTimeout(function(){
+        $("#user_email").val(partial)
+      }, num)
+    }
+    $("#user_password").val(password)
+  })
+</script>

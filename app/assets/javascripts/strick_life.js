@@ -53,5 +53,7 @@ window.StrickLife = {
 };
 
 $(document).ready(function(){
-  StrickLife.initialize();
+  //if (!!StrickLife.current_user) {
+    StrickLife.initialize();
+  //}
 });

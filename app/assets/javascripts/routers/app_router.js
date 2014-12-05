@@ -1,6 +1,9 @@
 StrickLife.Routers.AppRouter = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl
+    StrickLife.navView = new StrickLife.Views.ContextNavBar({
+      $el: $("#contextual-navbar")
+    });
   },
 
   routes: {
@@ -76,19 +79,14 @@ StrickLife.Routers.AppRouter = Backbone.Router.extend({
       collection: StrickLife.posts
     });
 
-    this._swapView(view)
-    view.initCal()
+    this._swapView(view);
+    view.initCal();
   },
 
-
   _swapView: function(view) {
-    //StrickLife.navView && StrickLife.navView.remove()
-
-    var nav = $("#contextual-navbar")
-    StrickLife.navView = new StrickLife.Views.ContextNavBar({
-      $el: nav
-    });
-    StrickLife.navView.render().$el;
+    // StrickLife.navView && StrickLife.navView.remove();
+    // StrickLife.navView.removeOldNavSubviews();
+    StrickLife.navView.render();
 
     this._currentView && this._currentView.remove();
     this.$rootEl.html(view.render().$el)

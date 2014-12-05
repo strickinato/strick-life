@@ -19,7 +19,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     this.$el.html(content)
 
 
-    this.removeOldNavSubviews();
+    // StrickLife.navView.removeOldNavSubviews();
 
     this.addSubmitButtonToNav();
     this.addDateTaggerToNav();
@@ -27,14 +27,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     this.addTagTaggerToNav();
 
     return this;
-  },
-
-  removeOldNavSubviews: function() {
-    if(StrickLife.navView.subviews("#context-area").length > 0){
-      _.each(StrickLife.navView.subviews()["#context-area"], function(subview){
-        subview.remove()
-      })
-    }
   },
 
 //#MARKDOWN

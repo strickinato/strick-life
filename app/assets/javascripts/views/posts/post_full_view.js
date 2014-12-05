@@ -8,6 +8,7 @@ StrickLife.Views.PostFullView = Backbone.View.extend({
   className: "post-full",
 
   render: function(){
+    // debugger;
     var content = this.template({
       post: this.model
     });

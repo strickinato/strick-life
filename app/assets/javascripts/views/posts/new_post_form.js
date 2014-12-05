@@ -30,15 +30,10 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     return this;
   },
 
-//#MARKDOWN
-  // initMarkDown: function() {
-  //   var editor = new EpicEditor({
-  //     textarea: "new-post-body",
-  //     focusOnLoad: true,
-  //   }).load();
-  // },
   addPictureSelectionViewToNav: function() {
-    this.pictureFormView = new StrickLife.Views.PictureSelectionView();
+    this.pictureFormView = new StrickLife.Views.PictureSelectionView({
+      model: this.model
+    });
     StrickLife.navView.addSubview("#context-area", this.pictureFormView)
   },
 
@@ -137,7 +132,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
 
   getPictureData: function(formData) {
     formData.post.picture_url = this.pictureFormView.pictureUrl
-    debugger
     return formData
   },
 

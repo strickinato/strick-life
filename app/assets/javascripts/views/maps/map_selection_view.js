@@ -11,9 +11,7 @@ StrickLife.Views.MapSelectionView = Backbone.View.extend({
 
   render: function(){
     var content = this.template();
-
     this.insertCurrentLocation();
-
     this.$el.html(content);
 
     return this;

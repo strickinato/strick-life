@@ -31,16 +31,7 @@ module Api
       end
 
       @post.location_id = loc[:id]
-      # if location
-      #   @post.location_id = location.id
-      # else
-      #   location = Location.new(location_params)
-      #   if location.save
-      #     @post.location_id = location.id
-      #   else
-      #     render :json => @post.errors.full_messages, :status => 422
-      #   end
-      # end
+
 
       if @post.save
         render :index
@@ -52,7 +43,7 @@ module Api
 
     private
     def post_params
-      params.require(:post).permit(:user_id, :body, :post_date, :all_tags)
+      params.require(:post).permit(:user_id, :body, :post_date, :all_tags, :picture_url)
     end
     def location_params
       params.require(:location_data).permit(:longitude, :latitude, :address, :place_id)

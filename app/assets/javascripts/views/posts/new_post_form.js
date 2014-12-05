@@ -25,6 +25,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     this.addDateTaggerToNav();
     this.addLocationTaggerToNav();
     this.addTagTaggerToNav();
+    this.addPictureSelectionViewToNav();
 
     return this;
   },
@@ -36,6 +37,11 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
   //     focusOnLoad: true,
   //   }).load();
   // },
+  addPictureSelectionViewToNav: function() {
+    this.pictureFormView = new StrickLife.Views.PictureSelectionView();
+    StrickLife.navView.addSubview("#context-area", this.pictureFormView)
+  },
+
   addTagTaggerToNav: function() {
     this.taggerView = new StrickLife.Views.TagsIndexForm({
       postTagCollection: this.postTagCollection,

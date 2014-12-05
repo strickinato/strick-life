@@ -15,7 +15,7 @@ StrickLife.Views.PictureSelectionView = Backbone.View.extend({
   className: "nav-form-item",
 
   events: {
-    "click #map-selection-icon" : "togglePopover",
+    "click #picture-selection-icon" : "togglePopover",
   },
 
   togglePopover: function(event){

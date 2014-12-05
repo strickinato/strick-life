@@ -16,6 +16,7 @@ StrickLife.Views.PictureSelectionView = Backbone.View.extend({
 
   events: {
     "click #picture-selection-icon" : "togglePopover",
+    "change" : "getImage"
   },
 
   togglePopover: function(event){
@@ -34,12 +35,14 @@ StrickLife.Views.PictureSelectionView = Backbone.View.extend({
 
 
   getPictureData: function(formData){
-
+    formData.post.picture_url = this.imageUrl ? this.imageUrl : "";
     return formData;
   },
 
-  createFilePicker: function() {
-
+  getImage: function() {
+    this.imageUrl = event.fpfile.url
+    var string = "<img src='" + this.imageUrl +"'>"
+    $("#current-picture-view").html(string);
   },
 
 });

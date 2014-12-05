@@ -498,3 +498,23 @@ textarea {
     float: left;
   }
 }
+
+/* SPLASH PAGES */
+.splash-container {
+  height: 100%;
+}
+
+.form-container {
+  background-color: white;
+  border-radius: 10px;
+  width: 50%;
+  margin: 200px auto;
+}
+
+.form-container button {
+  display: inline-block;
+}
+
+#session-splash {
+  background-image: url(http://www.mortylefkoe.com/wp-content/uploads/bigstock-Journal-050713.jpg)
+}

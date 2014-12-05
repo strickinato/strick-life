@@ -1,23 +1,25 @@
-<div id="" class="">
-  <form id="new-user-form" action="<%= session_url %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<div id="session-splash" class="splash-container container-fluid">
+  <div class="form-container container">
+    <form id="new-user-form" action="<%= session_url %>" method="post" class="form-group">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <label for="user_email">Email:</label>
-    <input
-      id= "user_email"
-      class=""
-      type="text"
-      name="user[email]"
-      value="<%= @user.email %>">
+      <label for="user_email">Email:</label>
+      <input
+        id= "user_email"
+        class="form-control"
+        type="text"
+        name="user[email]"
+        value="<%= @user.email %>">
 
-    <label for="user_password">Password:</label>
-    <input
-      id= "user_password"
-      class=""
-      type="password"
-      name="user[password]">
+      <label for="user_password">Password:</label>
+      <input
+        id= "user_password"
+        class="form-control"
+        type="password"
+        name="user[password]">
 
-    <input type="Submit" value="Sign In">
-  </form>
-  <%= button_to "Sign Up", new_user_url, class: 'btn btn-primary' %>
+      <input type="Submit" value="Sign In" class="btn btn-primary">
+    </form>
+      <%= button_to "Sign Up", new_user_url, class: 'btn btn-primary' %>
+    </div>
 </div>

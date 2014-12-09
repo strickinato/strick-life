@@ -61,16 +61,74 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
     tour = new Shepherd.Tour({
       defaults: {
         classes: 'shepherd-theme-arrows',
-        scrollTo: true
       }
     });
-
-    tour.addStep('first-step', {
-      text: 'This step is attached to the right of the <code>.example-css-selector</code> element.',
+    tour.addStep('welcome-info', {
+      title: "Welcome To StrickLife",
+      text: 'StrickLife remembers your whole life. Click continue to learn how it works.',
+      buttons: [
+      {
+        text: 'Skip Tour',
+        action: tour.cancel
+      },
+      {
+        text: 'Continue',
+        action: tour.next
+      }
+      ]
+    });
+tour.addStep('new-post-info', {
+      text: 'Whenever you experience an important life event, add a post.',
       attachTo: '#side-add-new-post right',
       buttons: [
       {
+        text: 'End Tour',
+        action: tour.cancel
+      },
+      {
         text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+    tour.addStep('index-info', {
+      text: 'You can always return to your posts here.',
+      attachTo: '#side-see-all-posts right',
+      buttons: [
+      {
+        text: 'End Tour',
+        action: tour.cancel
+      },
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+    tour.addStep('map-info', {
+      text: 'StrickLife organize your posts by location',
+      attachTo: '#side-see-the-map right',
+      buttons: [
+      {
+        text: 'End Tour',
+        action: tour.cancel
+      },
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+    tour.addStep('calendar-info', {
+      text: '...or, see a calendar of everything you\'ve done!',
+      attachTo: '#side-see-the-calendar right',
+      buttons: [
+      {
+        text: 'End Tour',
+        action: tour.cancel
+      },
+      {
+        text: 'Get Started',
         action: tour.next
       }
       ]

@@ -3,7 +3,6 @@ StrickLife.Views.PictureSelectionView = Backbone.View.extend({
 
   render: function(){
     var content = this.template();
-    this.insertCurrentPicture()
     this.$el.html(content);
     filepicker.constructWidget(this.$("#picture-widget")[0])
     return this;
@@ -14,10 +13,6 @@ StrickLife.Views.PictureSelectionView = Backbone.View.extend({
   events: {
     "click #picture-selection-icon" : "togglePopover",
     "change" : "getImage"
-  },
-
-  insertCurrentPicture: function() {
-    console.log(this.model)
   },
 
   togglePopover: function(event){

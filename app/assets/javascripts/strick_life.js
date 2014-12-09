@@ -27,6 +27,8 @@ window.StrickLife = {
     StrickLife.visitedIndex = false;
     StrickLife.visitedNew = false;
 
+
+    this.consoleLogHello();
     this.getLocationData();
 
     new StrickLife.Routers.AppRouter({
@@ -52,8 +54,14 @@ window.StrickLife = {
     } else {
       x.innerHTML = "Geolocation is not supported by this browser.";
     }
+  },
+
+  consoleLogHello: function() {
+    console.log("Hi, welcome to StrickLife. I'm glad to see you're checking under the hood. Just thought I'd mention that I'm currently looking for a job as a developer. Shoot me an email at aaronstrick@gmail.com if you're hiring!")
   }
+
 };
+
 
 $(document).ready(function(){
   if(StrickLife.currentUser !== undefined) {

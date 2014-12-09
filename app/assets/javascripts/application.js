@@ -23,6 +23,7 @@
 //= require typeahead
 //= require moment
 //= require clndr
+//= require shepherd
 //= require filepicker
 //= require strick_life
 //= require_tree ../templates

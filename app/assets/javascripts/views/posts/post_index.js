@@ -63,16 +63,21 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
         classes: 'shepherd-theme-arrows',
       }
     });
+
+    Shepherd.on("complete", function(){
+      StrickLife.visitedIndex = true;
+    });
+
     tour.addStep('welcome-info', {
       title: "Welcome To StrickLife",
       text: 'StrickLife remembers your whole life. Click continue to learn how it works.',
       buttons: [
       {
-        text: 'Skip Tour',
+        text: 'Skip',
         action: tour.cancel
       },
       {
-        text: 'Continue',
+        text: 'Take Tour',
         action: tour.next
       }
       ]
@@ -124,16 +129,14 @@ tour.addStep('new-post-info', {
       attachTo: '#side-see-the-calendar right',
       buttons: [
       {
-        text: 'End Tour',
-        action: tour.cancel
-      },
-      {
-        text: 'Get Started',
+        text: 'Have fun',
         action: tour.next
       }
       ]
     });
 
-    tour.start();
+    if(StrickLife.visitedIndex == false) {
+      tour.start();
+    }
   },
 });

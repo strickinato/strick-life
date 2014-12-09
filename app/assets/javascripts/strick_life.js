@@ -24,6 +24,9 @@ window.StrickLife = {
     StrickLife.tags = new StrickLife.Collections.Tags();
     StrickLife.tags.fetch();
 
+    StrickLife.visitedIndex = false;
+    StrickLife.visitedNew = false;
+
     this.getLocationData();
 
     new StrickLife.Routers.AppRouter({

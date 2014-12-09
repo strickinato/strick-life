@@ -65,13 +65,6 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
       }
     });
 
-    Shepherd.on("cancel", function(){
-      StrickLife.visitedIndex = true;
-    });
-    Shepherd.on("complete", function(){
-      StrickLife.visitedIndex = true;
-    });
-
     tour.addStep('welcome-info', {
       title: "Welcome To StrickLife",
       text: 'StrickLife remembers your whole life. Click continue to learn how it works.',
@@ -142,5 +135,6 @@ tour.addStep('new-post-info', {
     if(StrickLife.visitedIndex == false) {
       tour.start();
     }
+    StrickLife.visitedIndex = true;
   },
 });

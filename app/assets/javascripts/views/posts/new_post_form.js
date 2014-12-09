@@ -162,14 +162,6 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
         classes: 'shepherd-theme-arrows',
       }
     });
-
-    Shepherd.on("complete", function(){
-      StrickLife.visitedNew = true;
-    });
-    Shepherd.on("cancel", function(){
-      StrickLife.visitedNew = true;
-    });
-
     tour.addStep('new-post-tags', {
       text: 'There are lots of options to add to a post. Add a picture...',
       attachTo: '#picture-selection-icon bottom',
@@ -246,9 +238,10 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     });
 
 
-    if(StrickLife.visitedIndex == false) {
+    if(StrickLife.visitedNew == false) {
       tour.start();
     }
+      StrickLife.visitedNew = true;
   },
 
 });

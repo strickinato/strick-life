@@ -15,13 +15,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-/* #MARKDOWN */
-/* @import 'base/epiceditor';
-@import 'preview/bartik';
-@import 'preview/github';
-@import 'preview/preview-dark';
-@import 'editor/epic-dark';
-@import 'editor/epic-light'; */
+@import "shepherd-theme-arrows";
+
 
 html, body{
   height: 100%;
@@ -32,7 +27,6 @@ html, body{
   height: 100%;
   left: 100px;
   padding-top: 50px;
-
 }
 
 

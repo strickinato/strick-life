@@ -1,6 +1,8 @@
 StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.listenTo(this.collection, "sync", this.render);
+
+    this.addTour();
   },
 
   template: JST["posts/index"],
@@ -51,7 +53,29 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
     $(".sticky-month-header").stick_in_parent({
       offset_top: 50,
     });
+  },
 
+  addTour: function(){
+    var tour;
 
+    tour = new Shepherd.Tour({
+      defaults: {
+        classes: 'shepherd-theme-arrows',
+        scrollTo: true
+      }
+    });
+
+    tour.addStep('first-step', {
+      text: 'This step is attached to the right of the <code>.example-css-selector</code> element.',
+      attachTo: '#side-add-new-post right',
+      buttons: [
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+
+    tour.start();
   },
 });

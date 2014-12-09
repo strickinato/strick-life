@@ -1,10 +1,12 @@
-<form id="new-user-forn" action="<%= users_url %>" method="post">
+<div id="user-splash" class="splash-container container-fluid">
+  <div class="form-container container">
+<form id="new-user-forn" class='form-group' action="<%= users_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label for="user_email">Email:</label>
   <input
     id= "user_email"
-    class=""
+    class="form-control"
     type="text"
     name="user[email]"
     value="<%= @user.email %>">
@@ -12,9 +14,11 @@
   <label for="user_password">Password:</label>
   <input
     id= "user_password"
-    class=""
+    class="form-control"
     type="password"
     name="user[password]">
 
-  <input type="Submit" value="Create User">
+  <input type="Submit" value="Create User" class='btn btn-primary'>
 </form>
+</div>
+</div>

@@ -10,11 +10,9 @@
 <body>
 
 <% if flash[:errors] %>
-<ul>
   <% flash[:errors].each do |error| %>
-  <li class="alert-fail"><%= error %></li>
+  <div class="alert alert-dismissable alert-danger"><%= error %></div>
   <% end %>
-</ul>
 <% end %>
 
 <%= yield %>

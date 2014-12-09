@@ -56,7 +56,7 @@ window.StrickLife = {
 };
 
 $(document).ready(function(){
-  //if (!!StrickLife.current_user) {
+  if(StrickLife.currentUser !== undefined) {
     StrickLife.initialize();
-  //}
+  }
 });

@@ -64,6 +64,9 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
       }
     });
 
+    Shepherd.on("cancel", function(){
+      StrickLife.visitedIndex = true;
+    });
     Shepherd.on("complete", function(){
       StrickLife.visitedIndex = true;
     });

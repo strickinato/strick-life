@@ -8,6 +8,8 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
       this.postTagCollection = options.postTagCollection;
     }
 
+
+
   },
   className: "posts-form",
 
@@ -26,6 +28,7 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     this.addLocationTaggerToNav();
     this.addTagTaggerToNav();
     this.addPictureSelectionViewToNav();
+    this.addTour();
 
     return this;
   },
@@ -149,6 +152,103 @@ StrickLife.Views.PostsForm = Backbone.View.extend({
     var num = (formData.post.all_tags.length - 2)
     formData.post.all_tags = formData.post.all_tags.slice(0, num)
     return formData
+  },
+
+  addTour: function(){
+    var tour;
+
+    tour = new Shepherd.Tour({
+      defaults: {
+        classes: 'shepherd-theme-arrows',
+      }
+    });
+
+    Shepherd.on("complete", function(){
+      StrickLife.visitedNew = true;
+    });
+    Shepherd.on("cancel", function(){
+      StrickLife.visitedNew = true;
+    });
+
+    tour.addStep('new-post-tags', {
+      text: 'There are lots of options to add to a post. Add a picture...',
+      attachTo: '#picture-selection-icon bottom',
+      buttons: [
+      {
+        text: 'Skip',
+        action: tour.cancel
+      },
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+
+    tour.addStep('new-post-tags', {
+      text: '...or add tags...',
+      attachTo: '#tag-selection-icon bottom',
+      buttons: [
+      {
+        text: 'Skip',
+        action: tour.cancel
+      },
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+
+    tour.addStep('new-post-location', {
+      text: '...or change your location...',
+      attachTo: '#map-selection-icon bottom',
+      buttons: [
+      {
+        text: 'Skip',
+        action: tour.cancel
+      },
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+
+    tour.addStep('new-post-date', {
+      text: '...change the date.',
+      attachTo: '#date-selection-icon bottom',
+      buttons: [
+      {
+        text: 'Skip',
+        action: tour.cancel
+      },
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+
+    tour.addStep('new-post-submit', {
+      text: 'Click here when you are finished.',
+      attachTo: '#date-selection-icon bottom',
+      buttons: [
+      {
+        text: 'Skip',
+        action: tour.cancel
+      },
+      {
+        text: 'Next',
+        action: tour.next
+      }
+      ]
+    });
+
+
+    if(StrickLife.visitedIndex == false) {
+      tour.start();
+    }
   },
 
 });

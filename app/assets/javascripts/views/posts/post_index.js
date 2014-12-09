@@ -2,7 +2,7 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.listenTo(this.collection, "sync", this.render);
 
-    this.addTour();
+
   },
 
   template: JST["posts/index"],
@@ -17,6 +17,7 @@ StrickLife.Views.PostsIndex = Backbone.CompositeView.extend({
     this.$el.html(content)
     this.attachSubviews();
     this.makeItSticky();
+    this.addTour();
 
     return this;
   },

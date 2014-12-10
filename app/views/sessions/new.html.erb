@@ -19,18 +19,28 @@
         type="password"
         name="user[password]">
 
-      <input type="Submit" value="Sign In" class="btn btn-primary">
     </form>
-      <%= button_to "Sign Up", new_user_url, class: 'btn btn-primary', method: :get  %>
-      <button id="guest-btn" class="btn btn-primary">Guest Login</button>
+      <div class="btn-group" role="group">
+        <button id="submit-form" type="button"class="btn btn-primary">Sign In</button>
+        <button id="guest-btn" type="button" class="btn btn-primary">Guest Login</button>
+        <a href="/users/new" id="signup-btn" type="button" class="btn btn-primary">Sign Up</a>
+      </div>
     </div>
 </div>
 <script type="text/javascript">
+  var form = document.getElementById("new-user-form");
   $("#guest-btn").on("click", function() {
     var email = "amazingperson@loveandhugs.com"
     var password = "guestpassword123"
     $("#user_email").val(email)
     $("#user_password").val(password)
+    form.submit();
+  });
+  $("#submit-form").on("click", function(){
+    form.submit();
+  });
+  $("#signup-btn").on("click", function(){
+    window.location("/users/new")
+  });
 
-  })
 </script>

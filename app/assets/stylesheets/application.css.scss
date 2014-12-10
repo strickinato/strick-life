@@ -158,8 +158,10 @@ html, body{
 }
 
 #map-info-window{
-  width: 250px;
+  width: 300px;
   height: 350px;
+  font-family: courier;
+  font-size: 10px;
 }
 
 #map-info-window div {
@@ -170,13 +172,15 @@ html, body{
   display: none;
 }
 
+#map-info-window-address {
+  font-weight: bold;
+  font-family: courier;
+}
+
 #map-info-window .day-views.row{
   border-top: solid 1px #CCC;
   border-bottom: solid 1px #CCC;
-}
-
-#map-info-window .day-post-container:hover {
-  background-color: #F9FDFF;
+  width: 100%;
 }
 
 #map-info-window .day-min-date {
@@ -185,25 +189,19 @@ html, body{
 
 #map-info-window .post-min {
   height: 30px;
-  font-size: 14;
+  font-size: 12px;
   border-bottom: solid 1px #CCC;
 }
 
-#map-info-window .post-min-tags {
-  position: absolute;
-  bottom: 0px;
-  left: 5px
+#map-info-window .post-min-content:hover {
+  background-color: fuchsia;
 }
 
-#map-info-window .post-min-tags li {
-  display: inline;
-  list-style-type: none;
-  color: white;
-  background-color: #428bca;
-  border-radius: 5px;
-  padding: 2px 3px;
-  margin-right: 5px;
+
+#map-info-window .post-tags {
+  display: none;
 }
+
 
 
 /* CALENDAR VIEW */

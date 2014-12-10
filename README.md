@@ -1,6 +1,8 @@
 Welcome To StrickLife
 ======================
-StrickLife is a browser based lifelogging application inspired by DayOne for OSX built on Ruby on Rails and Backbone.js
+StrickLife is a browser based lifelogging application inspired by DayOne for OSX built on Ruby on Rails and Backbone.js.
+
+See the project: [StrickLife](http://stricklife.com)
 
 Features
 ---------

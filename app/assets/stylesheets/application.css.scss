@@ -204,6 +204,7 @@ html, body{
 
 
 
+
 /* CALENDAR VIEW */
 .clndr {
   background-color: #F9FDFF;
@@ -245,6 +246,7 @@ html, body{
   color: #DDD;
 }
 
+
 /* CALENDAR MODAL */
 
 #modal-post-view {
@@ -257,14 +259,53 @@ html, body{
   border: solid 4px black;
   border-radius: 10px;
   font-size: 12px;
-  .month-header, .day-min-date, .post-min-tags { display: none; }
-  .post-min {
-    background-color: #FFF;
-    font-size: 12px;
-    height: 20px;
-  }
-
 }
+
+#modal-post-view{
+  width: 300px;
+  height: 350px;
+  font-family: courier;
+  font-size: 10px;
+}
+
+#modal-post-view div {
+  background-color: #FFF;
+}
+
+#modal-post-view .month-header {
+  display: none;
+}
+
+#modal-post-view-address {
+  font-weight: bold;
+  font-family: courier;
+}
+
+#modal-post-view .day-views.row{
+  border-top: solid 1px #CCC;
+  border-bottom: solid 1px #CCC;
+  width: 100%;
+}
+
+#modal-post-view .day-min-date {
+  display: none;
+}
+
+#modal-post-view .post-min {
+  height: 30px;
+  font-size: 12px;
+  border-bottom: solid 1px #CCC;
+}
+
+#modal-post-view .post-min-content:hover {
+  background-color: fuchsia;
+}
+
+
+#modal-post-view .post-tags {
+  display: none;
+}
+
 
 
 

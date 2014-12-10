@@ -59,7 +59,14 @@ StrickLife.Views.MapView = Backbone.View.extend({
 
       }.bind(model));
     });
-    var markerCluster = new MarkerClusterer(this.map, markers)
+
+    var clusterStyles = [{
+      textColor: 'black',
+      url: '<%= asset_path("mapcluster.png")  %>',
+      height: 50,
+      width: 50
+    }];
+    var markerCluster = new MarkerClusterer(this.map, markers, { styles: clusterStyles, maxZoom: 15 })
 
   },
 
